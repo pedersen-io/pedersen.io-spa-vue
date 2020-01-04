@@ -36,7 +36,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ----------
 
 1. `helm create dp-spa-vue`
-2. `helm install dp-spa-vue-test dp-spa-vue`
+2. Rename folder to `.helm`
+3. `helm install dp-spa-vue-test .helm`
     ```yaml
     Release "dp-spa-vue-test" has been upgraded. Happy Helming!
     NAME: dp-spa-vue-test
