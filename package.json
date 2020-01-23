@@ -1,5 +1,5 @@
 {
-  "name": "derekpedersen-spa-vue",
+  "name": "pedersen.io-spa-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "docker:build": "docker build ./ -t derekpedersen-spa-vue",
-    "docker:tag": "docker tag derekpedersen-spa-vue us.gcr.io/sleipnir/derekpedersen-spa-vue:$(git rev-parse HEAD)",
-    "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/derekpedersen-spa-vue:$(git rev-parse HEAD)"
+    "docker:build": "docker build ./ -t pedersen.io-spa-vue",
+    "docker:tag": "docker tag pedersen.io-spa-vue us.gcr.io/sleipnir/pedersen.io-spa-vue:$(git rev-parse HEAD)",
+    "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/pedersen.io-spa-vue:$(git rev-parse HEAD)"
   },
   "dependencies": {
     "core-js": "^3.3.2",

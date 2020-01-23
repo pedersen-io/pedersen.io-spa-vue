@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: us.gcr.io/sleipnir/derekpedersen-spa-vue
+  repository: us.gcr.io/sleipnir/pedersen.io-spa-vue
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
