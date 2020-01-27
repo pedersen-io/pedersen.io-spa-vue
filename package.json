@@ -8,12 +8,14 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "docker:build": "docker build ./ -t pedersen.io-spa-vue",
-    "docker:tag": "docker tag pedersen.io-spa-vue us.gcr.io/sleipnir/pedersen.io-spa-vue:$(git rev-parse HEAD)",
-    "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/pedersen.io-spa-vue:$(git rev-parse HEAD)"
+    "docker:build": "docker build ./ -t pedersen-io-spa-vue",
+    "docker:tag": "docker tag pedersen-io-spa-vue us.gcr.io/sleipnir/pedersen-io-spa-vue:42fbc3184c5cd5a0f3cd534b0c5c5ff1323dcc71",
+    "docker:publish": "docker push us.gcr.io/sleipnir/pedersen-io-spa-vue:42fbc3184c5cd5a0f3cd534b0c5c5ff1323dcc71"
   },
   "dependencies": {
     "core-js": "^3.3.2",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
     "vue": "^2.6.10",
     "vue-material": "^1.0.0-beta-11",
     "vue-router": "^3.1.3",
