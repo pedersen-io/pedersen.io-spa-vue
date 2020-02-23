@@ -15,5 +15,12 @@ declare module "vue-material/dist/components" {
   export function MdIcon(Vue: typeof _Vue, options?: any): void   
   export function MdList(Vue: typeof _Vue, options?: any): void  
   export function MdTabs(Vue: typeof _Vue, options?: any): void 
+  export function MdCard(Vue: typeof _Vue, options?: any): void 
+  export function MdTable(Vue: typeof _Vue, options?: any): void 
+  export function MdTableRow(Vue: typeof _Vue, options?: any): void 
+  export function MdTableCell(Vue: typeof _Vue, options?: any): void 
+  export function MdTableToolbar(Vue: typeof _Vue, options?: any): void 
   export function MdToolbar(Vue: typeof _Vue, options?: any): void 
+  export function MdRipple(Vue: typeof _Vue, options?: any): void 
+  export function MdLayout(Vue: typeof _Vue, options?: any): void 
 }

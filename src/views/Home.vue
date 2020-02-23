@@ -1,78 +1,70 @@
 <template>
-  <div class="page-container">
-    <md-app md-mode="reveal">
-      <md-app-toolbar class="md-primary">
-        <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-          <md-icon>menu</md-icon>
-        </md-button>
-        <span class="md-title">My Title</span>
-      </md-app-toolbar>
-
-      <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
-
-        <md-list>
-          <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
-          </md-list-item>
-        </md-list>
-      </md-app-drawer>
-
-      <md-app-content>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</p>
-      </md-app-content>
-    </md-app>
+  <div class="md-layout md-alignment-top">
+    <md-card class="md-layout-item md-medium-size-50 md-small-size-100 md-xsmall-size-100">
+      <md-card-header>
+        <div class="md-title">Software Developer by day, Skateboarder by weekend</div>
+      </md-card-header>
+      <md-card-content>
+        <img src="../assets/derek_and_jasper.jpg" alt="Derek and Jasper Pedersen" />
+      </md-card-content>
+    </md-card>
+    <md-card class="md-layout-item md-medium-size-50 md-small-size-100 md-xsmall-size-100">
+      <md-table>
+        <!-- <md-table-toolbar>
+        <h1 class="md-title">Skillz</h1>
+        </md-table-toolbar>-->
+        <md-table-row>
+          <md-table-head>Tech</md-table-head>
+          <md-table-head md-numeric>Years</md-table-head>
+          <md-table-head></md-table-head>
+        </md-table-row>
+        <md-table-row>
+          <md-table-cell>Golang</md-table-cell>
+          <md-table-cell md-numeric>3</md-table-cell>
+          <md-table-cell>By far my favorite language</md-table-cell>
+        </md-table-row>
+        <md-table-row>
+          <md-table-cell>C#</md-table-cell>
+          <md-table-cell md-numeric>5</md-table-cell>
+          <md-table-cell>A lot of time with .NET 3.0 -> 4.6</md-table-cell>
+        </md-table-row>
+        <md-table-row>
+          <md-table-cell>Kubernetes</md-table-cell>
+          <md-table-cell md-numeric>3</md-table-cell>
+          <md-table-cell>As easy as Sunday mornings</md-table-cell>
+        </md-table-row>
+      </md-table>
+    </md-card>
   </div>
 </template>
-
-<style lang="scss" scoped>
-  .md-app {
-    max-height: 100%;
-    border: 1px solid rgba(#000, .12);
-  }
-
-   // Demo purposes only
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
-  }
-</style>
-
-<script>
-export default {
-  name: 'Reveal',
-  data: () => ({
-    menuVisible: false
-  })
+<style>
+.md-card {
+  width: 45%;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
 }
+.md-card > .md-table {
+  text-align: left;
+}
+</style>
+<script lang="ts">
+import Vue from "vue";
+import {
+  MdCard,
+  MdTable,
+  MdTableToolbar,
+  MdLayout,
+  MdRipple
+} from "vue-material/dist/components";
+
+Vue.use(MdCard);
+Vue.use(MdTable);
+Vue.use(MdLayout);
+Vue.use(MdRipple);
+
+export default {
+  name: "home",
+  components: {}
+};
 </script>

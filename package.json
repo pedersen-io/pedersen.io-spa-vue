@@ -1,5 +1,5 @@
 {
-  "name": "pedersen.io-spa-vue",
+  "name": "pedersen-io-spa-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "docker:build": "docker build ./ -t pedersen-io-spa-vue",
-    "docker:tag": "docker tag pedersen-io-spa-vue us.gcr.io/sleipnir/pedersen-io-spa-vue:42fbc3184c5cd5a0f3cd534b0c5c5ff1323dcc71",
-    "docker:publish": "docker push us.gcr.io/sleipnir/pedersen-io-spa-vue:42fbc3184c5cd5a0f3cd534b0c5c5ff1323dcc71"
+    "docker:tag": "docker tag pedersen-io-spa-vue us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)",
+    "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)"
   },
   "dependencies": {
     "core-js": "^3.3.2",
@@ -37,8 +37,12 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.13.1",
     "prettier": "^1.18.2",
+    "sass-loader": "^8.0.2",
     "typescript": "~3.5.3",
+    "vue-class-component": "^7.2.2",
+    "vue-property-decorator": "^8.3.0",
     "vue-template-compiler": "^2.6.10"
   }
 }

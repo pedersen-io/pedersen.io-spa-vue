@@ -1,4 +1,4 @@
-# pedersen.io-spa-vue
+# pedersen-io-spa-vue
 
 ## Project setup
 ```
