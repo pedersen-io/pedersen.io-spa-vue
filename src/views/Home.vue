@@ -1,6 +1,6 @@
 <template>
-  <div class="md-layout md-alignment-top">
-    <md-card class="md-layout-item md-medium-size-50 md-small-size-100 md-xsmall-size-100">
+  <div class="md-layout md-alignment-top-center">
+    <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-card-header>
         <div class="md-title">Software Developer by day, Skateboarder by weekend</div>
       </md-card-header>
@@ -8,7 +8,7 @@
         <img src="../assets/derek_and_jasper.jpg" alt="Derek and Jasper Pedersen" />
       </md-card-content>
     </md-card>
-    <md-card class="md-layout-item md-medium-size-50 md-small-size-100 md-xsmall-size-100">
+    <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-table>
         <!-- <md-table-toolbar>
         <h1 class="md-title">Skillz</h1>
