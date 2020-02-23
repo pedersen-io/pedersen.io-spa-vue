@@ -9,7 +9,7 @@
 import Subdomain from "@/components/Subdomain.vue";
 
 export default {
-  name: "subdomains",
+  name: "family",
   components: {
     Subdomain
   }

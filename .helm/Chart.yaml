@@ -18,4 +18,4 @@ version: 0.1.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: cf0862f0ff1441aef692c613ac2796bc58838864 #1.16.0
+appVersion: d56b2b2113e582bc6752534abc96d6454117fabc #1.16.0

@@ -3,7 +3,7 @@
     <md-tabs md-sync-route>
       <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
       <md-tab id="tab-about" md-label="About" to="/about" exact></md-tab>
-      <md-tab id="tab-subdomains" md-label="Subdomains" to="/subdomains" exact></md-tab>
+      <md-tab id="tab-family" md-label="Family" to="/family" exact></md-tab>
     </md-tabs>
     <router-view />
   </div>
