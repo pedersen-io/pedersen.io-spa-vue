@@ -21,4 +21,6 @@ declare module "vue-material/dist/components" {
   export function MdTableCell(Vue: typeof _Vue, options?: any): void 
   export function MdTableToolbar(Vue: typeof _Vue, options?: any): void 
   export function MdToolbar(Vue: typeof _Vue, options?: any): void 
+  export function MdRipple(Vue: typeof _Vue, options?: any): void 
+  export function MdLayout(Vue: typeof _Vue, options?: any): void 
 }
