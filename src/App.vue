@@ -18,11 +18,12 @@
   color: #2c3e50;
 }
 </style>
+
 <style lang="scss">
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme("default", (
-  primary: md-get-palette-color(blue, A200), // The primary color of your application
+  primary: md-get-palette-color(purple, A200), // The primary color of your application
   accent: md-get-palette-color(red, A200), // The accent or secondary color
   theme: dark, // This can be dark or light
 
