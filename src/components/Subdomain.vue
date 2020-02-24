@@ -1,30 +1,27 @@
 <template>
-  <md-card>
-    <md-card-media-cover md-solid>
-      <md-card-media md-ratio="1:1">
-        <img src="../assets/jasper_nightlight.jpg"/>
-      </md-card-media>
-      <md-card-area>
-        <md-card-header>
-          <!-- <span class="md-title">Solid background</span>
-          <span class="md-subhead">1/1 image</span>-->
-        </md-card-header>
-        <md-card-actions>
-          <md-button :href="`${destination}`">{{ propMessage }}</md-button>
-        </md-card-actions>
-      </md-card-area>
-    </md-card-media-cover>
-  </md-card>
+    <md-card>
+      <md-card-media-cover md-solid>
+        <md-card-media md-ratio="1:1">
+         <img :src="require(`@/assets/${imagefile}`)">
+        </md-card-media>
+        <md-card-area>
+          <md-card-header>
+            <!-- <span class="md-title">Solid background</span>
+            <span class="md-subhead">1/1 image</span>-->
+          </md-card-header>
+          <md-card-actions>
+            <md-button :href="`${destination}`">{{ propMessage }}</md-button>
+          </md-card-actions>
+        </md-card-area>
+      </md-card-media-cover>
+    </md-card>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { Site } from "@/types"; // Our interface
 import Component from "vue-class-component";
-import {
-  MdButton,
-  MdCard
-} from "vue-material/dist/components";
+import { MdButton, MdCard } from "vue-material/dist/components";
 import { mapState, mapMutations } from "vuex";
 
 Vue.use(MdButton);
@@ -34,7 +31,7 @@ const SubdomainProps = Vue.extend({
   props: {
     propMessage: String,
     destination: String,
-    image: String
+    imagefile: String
   }
 });
 
