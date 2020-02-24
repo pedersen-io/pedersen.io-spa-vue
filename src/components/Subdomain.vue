@@ -1,38 +1,49 @@
 <template>
-  <md-content>
-    <h1>{{ msg }}</h1>
-    <md-button class="md-raised md-primary" href="https://google.com">{{ propMessage }}</md-button>
-  </md-content>
+    <md-card>
+      <md-card-media-cover md-solid>
+        <md-card-media md-ratio="1:1">
+         <img :src="require(`@/assets/${imagefile}`)">
+        </md-card-media>
+        <md-card-area>
+          <md-card-header>
+            <!-- <span class="md-title">Solid background</span>
+            <span class="md-subhead">1/1 image</span>-->
+          </md-card-header>
+          <md-card-actions>
+            <md-button :href="`${destination}`">{{ propMessage }}</md-button>
+          </md-card-actions>
+        </md-card-area>
+      </md-card-media-cover>
+    </md-card>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { Site } from "@/types"; // Our interface
 import Component from "vue-class-component";
-import { MdButton, MdContent, MdTabs } from "vue-material/dist/components";
+import { MdButton, MdCard } from "vue-material/dist/components";
 import { mapState, mapMutations } from "vuex";
 
 Vue.use(MdButton);
-Vue.use(MdContent);
-Vue.use(MdTabs);
+Vue.use(MdCard);
 
 const SubdomainProps = Vue.extend({
   props: {
-    propMessage: String
+    propMessage: String,
+    destination: String,
+    imagefile: String
   }
 });
 
 @Component({
-  components: {
-    
-  },
+  components: {},
   // Vuex's component binding helper can use here
   computed: mapState(["count"]),
   methods: mapMutations(["increment"])
 })
 export default class Subdomain extends SubdomainProps {
   // inital data
-  msg: string = "new message";
+  //msg: string = "new message";
   // use prop values for initial data
   helloMsg: string = "Hello, " + this.propMessage;
   // annotate refs type
@@ -48,14 +59,14 @@ export default class Subdomain extends SubdomainProps {
     //this.greet();
   }
   // computed
-  get computedMsg() {
-    return "computed " + this.msg;
-  }
-  // method
-  greet() {
-    alert("greeting: " + this.msg);
-    //this.$refs.helloComponent.sayHello();
-  }
+  // get computedMsg() {
+  //   return "computed " + this.msg;
+  // }
+  // // method
+  // greet() {
+  //   alert("greeting: " + this.msg);
+  //   //this.$refs.helloComponent.sayHello();
+  // }
   // direct dispatch example
   incrementIfOdd() {
     this.$store.dispatch("incrementIfOdd");
