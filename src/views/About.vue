@@ -1,5 +1,5 @@
 <template>
-  <md-layout class="md-alignment-top-center">
+  <div class="md-layout md-alignment-top-center">
     <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-card-header>
         <div class="md-title">Derek Pedersen</div>
@@ -23,7 +23,7 @@
         </p>
       </md-card-content>
     </md-card>
-  </md-layout>
+  </div>
 </template>
 <style>
 .md-card {

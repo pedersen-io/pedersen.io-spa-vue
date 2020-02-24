@@ -1,5 +1,5 @@
 <template>
-  <md-layout class="md-alignment-top-center">
+  <div class="md-layout md-alignment-top-center">
     <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-card-header>
         <div class="md-title">Software Developer by day, Skateboarder by weekend</div>
@@ -10,12 +10,12 @@
     </md-card>
     <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-table>
-        <md-table-toolbar>
+        <!-- <md-table-toolbar>
           <h1 class="md-title">Currently Utilized Skills</h1>
-        </md-table-toolbar>
+        </md-table-toolbar> -->
         <md-table-row>
           <md-table-head>Tech</md-table-head>
-          <md-table-head md-numeric>Experience</md-table-head>
+          <md-table-head md-numeric>Experience (Years)</md-table-head>
           <md-table-head></md-table-head>
         </md-table-row>
         <md-table-row>
@@ -43,17 +43,6 @@
           <md-table-cell md-numeric>1</md-table-cell>
           <md-table-cell>I don't like Ruby on Rails.</md-table-cell>
         </md-table-row>
-      </md-table>
-      <md-divider />
-      <md-table>
-        <md-table-toolbar>
-          <h1 class="md-title">Previously Utilized Skills</h1>
-        </md-table-toolbar>
-        <md-table-row>
-          <md-table-head>Tech</md-table-head>
-          <md-table-head md-numeric>Experience</md-table-head>
-          <md-table-head></md-table-head>
-        </md-table-row>
         <md-table-row>
           <md-table-cell>C#</md-table-cell>
           <md-table-cell md-numeric>5</md-table-cell>
@@ -66,7 +55,7 @@
         </md-table-row>
       </md-table>
     </md-card>
-  </md-layout>
+  </div>
 </template>
 <style>
 .md-card {
@@ -90,7 +79,8 @@ import {
   MdTableToolbar,
   MdLayout,
   MdRipple,
-  MdDivider
+  MdDivider,
+  MdContent
 } from "vue-material/dist/components";
 
 Vue.use(MdCard);
@@ -98,6 +88,7 @@ Vue.use(MdTable);
 Vue.use(MdLayout);
 Vue.use(MdRipple);
 Vue.use(MdDivider);
+Vue.use(MdContent);
 
 export default {
   name: "home",
