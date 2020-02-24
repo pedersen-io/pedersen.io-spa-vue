@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Subdomains from "../views/Subdomains.vue"
+import Family from "../views/Family.vue"
 
 Vue.use(VueRouter);
 
@@ -21,9 +21,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/subdomains",
-    name: "subdomains",
-    component: Subdomains
+    path: "/family",
+    name: "family",
+    component: Family
   },
 ];
 
