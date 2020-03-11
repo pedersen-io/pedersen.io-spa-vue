@@ -10,7 +10,8 @@
             <span class="md-subhead">1/1 image</span>-->
           </md-card-header>
           <md-card-actions>
-            <md-button :href="`${destination}`">{{ propMessage }}</md-button>
+            {{ propMessage }} | 
+            <md-button :href="`${destination}`">{{ name }}</md-button>
           </md-card-actions>
         </md-card-area>
       </md-card-media-cover>
@@ -31,7 +32,8 @@ const SubdomainProps = Vue.extend({
   props: {
     propMessage: String,
     destination: String,
-    imagefile: String
+    imagefile: String,
+    name: String
   }
 });
 

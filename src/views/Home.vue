@@ -1,14 +1,14 @@
 <template>
   <div class="md-layout md-alignment-top-center">
-    <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
-      <md-card-header>
-        <div class="md-title">Software Developer by day, Skateboarder by weekend</div>
-      </md-card-header>
-      <md-card-content>
-        <img src="../assets/derek_and_jasper.jpg" alt="Derek and Jasper Pedersen" />
-      </md-card-content>
-    </md-card>
-    <md-card class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100">
+    <subdomain 
+      imagefile="derek_and_jasper.jpg" 
+      name="Derek Pedersen" 
+      destination="https://derek.pedersen.io"
+      propMessage="Senior Software Engineer by Day, Skateboarder by Weekend" 
+      class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100"
+    >
+    </subdomain>
+    <md-card class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100">
       <md-table>
         <!-- <md-table-toolbar>
           <h1 class="md-title">Currently Utilized Skills</h1>
@@ -82,6 +82,7 @@ import {
   MdDivider,
   MdContent
 } from "vue-material/dist/components";
+import Subdomain from "@/components/Subdomain.vue";
 
 Vue.use(MdCard);
 Vue.use(MdTable);
@@ -92,6 +93,8 @@ Vue.use(MdContent);
 
 export default {
   name: "home",
-  components: {}
+  components: {
+    Subdomain
+  }
 };
 </script>

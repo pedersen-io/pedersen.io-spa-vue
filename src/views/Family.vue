@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="md-layout md-alignment-top-center">
-      <Subdomain propMessage="Jasper Pedersen" destination="https://jasper.pedersen.io" imagefile="jasper_nightlight.jpg" />
-      <Subdomain propMessage="Marissa Pedersen" destination="https://postcardstoseattle.com" imagefile="marissa_and_jp.jpg" />
+      <Subdomain name="Jasper Pedersen" propMessage="I'm a baby" destination="https://jasper.pedersen.io" imagefile="jasper_nightlight.jpg" />
+      <Subdomain name="Marissa Pedersen" propMessage="www.postcardstoseattle.com" destination="https://postcardstoseattle.com" imagefile="marissa_and_jp.jpg" />
     </div>
   </div>
 </template>

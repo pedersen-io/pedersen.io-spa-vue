@@ -6,21 +6,29 @@
         <div class="md-subhead">Quick Facts</div>
       </md-card-header>
       <md-card-content>
-        <p>
-          Born at Evergreen Hospital (Kirkland, WA) in September 1985. 
-          <br />
+        <ul>
+          <li>Born at Evergreen Hospital (Kirkland, WA) in September 1985. 
+          </li>
+          <li>
           Grew up in Mill Creek, WA.
-          <br />
+          </li>
+
+          <li>
           Graduated from Jackson High School (Mill Creek, WA) in June 2004. 
-          <br />
+          </li>
+          <li>
           Spent a year at the University of Limerick (Limerick, Ireland) from September 2004 to June 2005.
-          <br />
+          </li>
+          <li>
           Graduated from Western Washington University (Bellingham, WA) in January 2010. Double majored in Economics and Philosophy.
-          <br />
+          </li>
+          <li>
           Graduated from Seattle Central Community College (Seattle, WA) in January 2012. Received a certificate in Database Design and Administration.
-          <br />
+          </li>
+          <li>
           Been programming since then.
-        </p>
+          </li>
+        </ul>
       </md-card-content>
     </md-card>
   </div>
