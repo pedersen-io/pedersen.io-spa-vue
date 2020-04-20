@@ -10,6 +10,13 @@ pipeline {
                 }
             }
         }
+        stage('Dependencies') {
+            steps{
+                dir('/root/workspace/pedersen.io-spa-vue') {
+                    sh 'yarn install'
+                }
+            }
+        }
         stage('Build') {
             steps{
                 dir('/root/workspace/pedersen.io-spa-vue') {
