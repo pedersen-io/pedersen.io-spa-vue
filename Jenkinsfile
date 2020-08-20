@@ -24,14 +24,14 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps{
-                dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'yarn test:unit'
-                    sh 'yarn test:e2e'
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps{
+        //         dir('/root/workspace/pedersen.io-spa-vue') {
+        //             sh 'yarn test:unit'
+        //             sh 'yarn test:e2e'
+        //         }
+        //     }
+        // }
         stage('Docker') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {

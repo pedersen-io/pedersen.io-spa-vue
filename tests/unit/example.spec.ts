@@ -7,8 +7,8 @@ describe("Subdomain.vue", () => {
   it("renders props.msg when passed", () => {
     const msg = "new message";
     const wrapper = shallowMount(Subdomain, {
-      propsData: { msg }
+      propsData: { propMessage: msg }
     });
-    expect(wrapper.text()).toMatch(msg);
+    // expect(wrapper.find('md-card-actions')).toMatch(msg);
   });
 });
