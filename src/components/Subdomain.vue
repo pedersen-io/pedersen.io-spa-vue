@@ -70,8 +70,8 @@ export default class Subdomain extends SubdomainProps {
   //   //this.$refs.helloComponent.sayHello();
   // }
   // direct dispatch example
-  incrementIfOdd() {
-    this.$store.dispatch("incrementIfOdd");
-  }
+  // incrementIfOdd() {
+  //   this.$store.dispatch("incrementIfOdd");
+  // }
 }
 </script>
