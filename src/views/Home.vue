@@ -1,14 +1,13 @@
 <template>
-  <div class="md-layout md-alignment-top-center">
-    <subdomain 
+    <div class="md-layout md-alignment-top-center">
+    <Subdomain 
       imagefile="derek_and_jasper.jpg" 
       name="Derek Pedersen" 
       destination="https://derek.pedersen.io"
       propMessage="Senior Software Engineer by Day, Skateboarder by Weekend" 
-      class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100"
     >
-    </subdomain>
-    <md-card class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100">
+    </Subdomain>
+    <md-card>
       <md-table>
         <!-- <md-table-toolbar>
           <h1 class="md-title">Currently Utilized Skills</h1>
