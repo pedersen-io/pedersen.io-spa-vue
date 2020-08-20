@@ -6,8 +6,6 @@
         </md-card-media>
         <md-card-area>
           <md-card-header>
-            <!-- <span class="md-title">Solid background</span>
-            <span class="md-subhead">1/1 image</span>-->
           </md-card-header>
           <md-card-actions>
             {{ propMessage }} | 
@@ -50,28 +48,14 @@ export default class Subdomain extends SubdomainProps {
   helloMsg: string = "Hello, " + this.propMessage;
   // annotate refs type
   $refs!: {
-    //helloComponent: HelloWorld;
+    subdomainComponent: Subdomain;
   };
   // additional declaration is needed
   // when you declare some properties in `Component` decorator
   count!: number;
   increment!: () => void;
   // lifecycle hook
-  // mounted() {
-  //   // this.greet();
-  // }
-  // computed
-  // get computedMsg() {
-  //   return "computed " + this.msg;
-  // }
-  // // method
-  // greet() {
-  //   alert("greeting: " + this.msg);
-  //   //this.$refs.helloComponent.sayHello();
-  // }
-  // direct dispatch example
-  // incrementIfOdd() {
-  //   this.$store.dispatch("incrementIfOdd");
-  // }
+  mounted() {
+  }
 }
 </script>
