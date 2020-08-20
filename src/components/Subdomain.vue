@@ -45,7 +45,7 @@ const SubdomainProps = Vue.extend({
 })
 export default class Subdomain extends SubdomainProps {
   // inital data
-  msg: string = "new message";
+  // msg: string = "new message";
   // use prop values for initial data
   helloMsg: string = "Hello, " + this.propMessage;
   // annotate refs type
@@ -57,21 +57,21 @@ export default class Subdomain extends SubdomainProps {
   count!: number;
   increment!: () => void;
   // lifecycle hook
-  mounted() {
-    this.greet();
-  }
+  // mounted() {
+  //   // this.greet();
+  // }
   // computed
-  get computedMsg() {
-    return "computed " + this.msg;
-  }
+  // get computedMsg() {
+  //   return "computed " + this.msg;
+  // }
   // // method
-  greet() {
-    alert("greeting: " + this.msg);
-    //this.$refs.helloComponent.sayHello();
-  }
+  // greet() {
+  //   alert("greeting: " + this.msg);
+  //   //this.$refs.helloComponent.sayHello();
+  // }
   // direct dispatch example
-  incrementIfOdd() {
-    this.$store.dispatch("incrementIfOdd");
-  }
+  // incrementIfOdd() {
+  //   this.$store.dispatch("incrementIfOdd");
+  // }
 }
 </script>
