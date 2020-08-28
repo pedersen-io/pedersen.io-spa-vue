@@ -37,7 +37,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 1. `helm create pedersen-spa-vue`
 2. Rename folder to `.helm`
-3. `helm install pedersen-spa-vue-test .helm`
+3. `helm upgrade pedersen-spa .helm`
     ```yaml
     Release "pedersen-spa-vue-test" has been upgraded. Happy Helming!
     NAME: pedersen-spa-vue-test
