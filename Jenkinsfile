@@ -49,10 +49,8 @@ pipeline {
                 expression { env.BRANCH_NAME == 'master' }
             }
             steps {
-                withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
-                    dir('/root/workspace/pedersen.io-spa-vue') {
-                        sh 'yarn deploy'
-                    }
+                dir('/root/workspace/pedersen.io-spa-vue') {
+                    sh 'yarn deploy'
                 }
             }
         }
