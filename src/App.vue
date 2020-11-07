@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <md-tabs md-sync-route>
-      <md-tab id="tab-home" md-label="Home" to="/" exact md-icon="home"></md-tab>
-      <md-tab id="tab-about" md-label="About" md-icon="info" to="/about" exact></md-tab>
-      <md-tab id="tab-family" md-label="Family" md-icon="people" to="/family" exact></md-tab>
-      <md-tab id="github" md-label="Github" md-alignment="right" md-icon="/assets/icons/github-box.svg" href="https://github.com/derekpedersen" target="_blank" exact></md-tab>
+      <md-tab id="tab-home" md-label="Home" to="/" md-icon="home"></md-tab>
+      <md-tab id="tab-about" md-label="About" md-icon="info" to="/about"></md-tab>
+      <md-tab id="tab-family" md-label="Family" md-icon="people" to="/family"></md-tab>
+      <md-tab id="github" md-label="Github" md-alignment="right" md-icon="/assets/icons/github-box.svg" href="https://github.com/derekpedersen" target="_blank"></md-tab>
       <md-tab id="linkedin" md-label="Linkedin" md-icon="/assets/icons/linkedin-box.svg" href="https://www.linkedin.com/in/derek-pedersen-67105415/"></md-tab>
       <md-tab id="docker" md-label="Docker" md-icon="/assets/icons/docker.svg" href="https://hub.docker.com/u/derekpedersen" target="_blank"></md-tab>
       <md-tab id="stackoverflow" md-label="Stackoverflow" md-icon="/assets/icons/stackoverflow.svg" href="https://stackoverflow.com/users/1304353/derek-pedersen"></md-tab>
