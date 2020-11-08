@@ -50,6 +50,7 @@ pipeline {
             }
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
+                    sh 'yarn set-version'
                     sh 'yarn deploy'
                 }
             }

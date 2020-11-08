@@ -21,7 +21,7 @@
           <li>Continued on at Lowe's as an Architect until May 2016.</li>
           <li>Worked as Software Consultant at iTrellis from May 2016 till Dec 2017 when my work for hire contract term expired as hired on as Full Time employee at MultiScale.</li>
           <li>Worked at MultiScale Health Networks as a Software Engineer from January 2018 till June 2019.</li>
-          <li>Currently working at Navigating Cancer as Senior Software Engineer since 2019.</li>
+          <li>Currently working at Navigating Cancer as a Senior Software Engineer since 2019.</li>
         </ul>
       </md-card-content>
     </md-card>
