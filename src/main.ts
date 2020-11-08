@@ -5,7 +5,7 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
-import 'vue-material/dist/vue-material.min.css';
+import "vue-material/dist/vue-material.min.css";
 
 new Vue({
   router,

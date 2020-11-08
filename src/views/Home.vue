@@ -1,10 +1,10 @@
 <template>
-    <div class="md-layout md-alignment-top-center">
-    <Subdomain 
-      imagefile="derek_and_jasper.jpg" 
-      name="Derek Pedersen" 
+  <div class="md-layout md-alignment-top-center">
+    <Subdomain
+      imagefile="derek_and_jasper.jpg"
+      name="Derek Pedersen"
       destination="https://derek.pedersen.io"
-      propMessage="Senior Software Engineer by Day, Skateboarder by Weekend" 
+      propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
     >
     </Subdomain>
     <md-card>
@@ -20,7 +20,9 @@
         <md-table-row>
           <md-table-cell>Golang</md-table-cell>
           <md-table-cell md-numeric>3</md-table-cell>
-          <md-table-cell>Simply the best. What you see is what you get.</md-table-cell>
+          <md-table-cell
+            >Simply the best. What you see is what you get.</md-table-cell
+          >
         </md-table-row>
         <md-table-row>
           <md-table-cell>Kubernetes</md-table-cell>
@@ -45,12 +47,18 @@
         <md-table-row>
           <md-table-cell>C#</md-table-cell>
           <md-table-cell md-numeric>5</md-table-cell>
-          <md-table-cell>Spent a lot of time with .NET starting at 3.0 till 4.6.</md-table-cell>
+          <md-table-cell
+            >Spent a lot of time with .NET starting at 3.0 till
+            4.6.</md-table-cell
+          >
         </md-table-row>
         <md-table-row>
           <md-table-cell>Visual Basic</md-table-cell>
           <md-table-cell md-numeric>2</md-table-cell>
-          <md-table-cell>If you work in a .NET shop that existed before 2010, you will encounter Visual Basic.</md-table-cell>
+          <md-table-cell
+            >If you work in a .NET shop that existed before 2010, you will
+            encounter Visual Basic.</md-table-cell
+          >
         </md-table-row>
       </md-table>
     </md-card>

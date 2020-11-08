@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Family from "../views/Family.vue"
+import Family from "../views/Family.vue";
 
 Vue.use(VueRouter);
 
@@ -24,7 +24,7 @@ const routes = [
     path: "/family",
     name: "family",
     component: Family
-  },
+  }
 ];
 
 const router = new VueRouter({

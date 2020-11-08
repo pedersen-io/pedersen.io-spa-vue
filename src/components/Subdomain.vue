@@ -1,19 +1,18 @@
 <template>
-    <md-card>
-      <md-card-media-cover md-solid>
-        <md-card-media md-ratio="1:1">
-         <img :src="require(`@/assets/${imagefile}`)">
-        </md-card-media>
-        <md-card-area>
-          <md-card-header>
-          </md-card-header>
-          <md-card-actions>
-            {{ propMessage }} | 
-            <md-button :href="`${destination}`">{{ name }}</md-button>
-          </md-card-actions>
-        </md-card-area>
-      </md-card-media-cover>
-    </md-card>
+  <md-card>
+    <md-card-media-cover md-solid>
+      <md-card-media md-ratio="1:1">
+        <img :src="require(`@/assets/${imagefile}`)" />
+      </md-card-media>
+      <md-card-area>
+        <md-card-header> </md-card-header>
+        <md-card-actions>
+          {{ propMessage }} |
+          <md-button :href="`${destination}`">{{ name }}</md-button>
+        </md-card-actions>
+      </md-card-area>
+    </md-card-media-cover>
+  </md-card>
 </template>
 
 <script lang="ts">
@@ -55,7 +54,6 @@ export default class Subdomain extends SubdomainProps {
   count!: number;
   increment!: () => void;
   // lifecycle hook
-  mounted() {
-  }
+  mounted() {}
 }
 </script>
