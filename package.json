@@ -11,7 +11,8 @@
     "docker:build": "docker build ./ -t pedersen-io-spa-vue",
     "docker:tag": "docker tag pedersen-io-spa-vue us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)",
-    "deploy": "helm upgrade pedersen-spa .helm"
+    "deploy": "helm upgrade pedersen-spa .helm",
+    "set-version": "sed -i -e 's/^version:.*$/version: '$(date '+%Y.%m.%d.%H%M')'/' -e 's/^appVersion:.*$/appVersion: '$(git rev-parse HEAD)'/' .helm/Chart.yaml"
   },
   "dependencies": {
     "core-js": "^3.3.2",
@@ -31,7 +32,7 @@
     "@vue/cli-plugin-typescript": "^4.0.0",
     "@vue/cli-plugin-unit-jest": "^4.0.0",
     "@vue/cli-plugin-vuex": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-service": "^4.5.8",
     "@vue/eslint-config-prettier": "^5.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
