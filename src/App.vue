@@ -61,12 +61,6 @@
         md-icon="/assets/icons/codefights.svg"
         href="https://app.codesignal.com/profile/drockem"
       ></md-tab>
-      <md-tab
-        id="udemy"
-        md-label="Udemy"
-        md-icon="/assets/icons/udemy.svg"
-        href="https://www.udemy.com/user/derek-pedersen-2/"
-      ></md-tab>
     </md-tabs>
     <router-view />
   </div>
