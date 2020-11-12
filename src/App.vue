@@ -7,34 +7,38 @@
         md-label="About"
         md-icon="info"
         to="/about"
+        exact
       ></md-tab>
       <md-tab
         id="tab-family"
         md-label="Family"
         md-icon="people"
         to="/family"
+        exact
       ></md-tab>
       <md-tab
         id="github"
         md-label="Github"
-        md-alignment="right"
         md-icon="/assets/icons/github-box.svg"
         href="https://github.com/derekpedersen"
         target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="linkedin"
         md-label="Linkedin"
         md-icon="/assets/icons/linkedin-box.svg"
         href="https://www.linkedin.com/in/derek-pedersen-67105415/"
+        target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="resume"
         md-label="Resume"
-        md-alignment="right"
         md-icon="/assets/icons/file-pdf-box.svg"
         href="https://derek.pedersen.io/api/resume/download"
         target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="docker"
@@ -42,24 +46,30 @@
         md-icon="/assets/icons/docker.svg"
         href="https://hub.docker.com/u/derekpedersen"
         target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="stackoverflow"
         md-label="Stackoverflow"
         md-icon="/assets/icons/stackoverflow.svg"
         href="https://stackoverflow.com/users/1304353/derek-pedersen"
+        target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="hackerrank"
         md-label="Hackerrank"
         md-icon="/assets/icons/hackerrank.svg"
         href="https://www.hackerrank.com/derekpedersen"
+        target="_blank"
+        exact
       ></md-tab>
       <md-tab
         id="codefights"
         md-label="Codefights"
         md-icon="/assets/icons/codefights.svg"
         href="https://app.codesignal.com/profile/drockem"
+        exact
       ></md-tab>
     </md-tabs>
     <router-view />
