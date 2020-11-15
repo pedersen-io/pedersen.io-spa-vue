@@ -25,6 +25,14 @@
         exact
       ></md-tab>
       <md-tab
+        id="jenkins"
+        md-label="Jenkins"
+        md-icon="/assets/icons/jenkins.svg"
+        href="https://jenkins.pedersen.io"
+        target="_blank"
+        exact
+      ></md-tab>
+      <md-tab
         id="linkedin"
         md-label="Linkedin"
         md-icon="/assets/icons/linkedin-box.svg"
