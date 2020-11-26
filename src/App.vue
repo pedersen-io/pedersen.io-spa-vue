@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <md-tabs md-sync-route>
-      <md-tab id="tab-home" md-label="Home" to="/" md-icon="home"></md-tab>
+      <md-tab 
+        id="home" 
+        md-label="Home" 
+        to="/" 
+        md-icon="home"
+      ></md-tab>
       <md-tab
-        id="tab-about"
+        id="about"
         md-label="About"
         md-icon="info"
         to="/about"
         exact
       ></md-tab>
       <md-tab
-        id="tab-family"
+        id="family"
         md-label="Family"
         md-icon="people"
         to="/family"
@@ -20,63 +25,56 @@
         id="github"
         md-label="Github"
         md-icon="/assets/icons/github-box.svg"
-        href="https://github.com/derekpedersen"
-        target="_blank"
+        @click="newWindow('https://github.com/derekpedersen')"
         exact
       ></md-tab>
       <md-tab
         id="jenkins"
         md-label="Jenkins"
         md-icon="/assets/icons/jenkins.svg"
-        href="https://jenkins.pedersen.io"
-        target="_blank"
+        @click="newWindow('https://jenkins.pedersen.io')"
         exact
       ></md-tab>
       <md-tab
         id="linkedin"
         md-label="Linkedin"
         md-icon="/assets/icons/linkedin-box.svg"
-        href="https://www.linkedin.com/in/derek-pedersen-67105415/"
-        target="_blank"
+        @click="newWindow('https://www.linkedin.com/in/derek-pedersen-67105415/')"
         exact
       ></md-tab>
       <md-tab
         id="resume"
         md-label="Resume"
         md-icon="/assets/icons/file-pdf-box.svg"
-        href="https://derek.pedersen.io/api/resume/download"
-        target="_blank"
+        @click="newWindow('https://derek.pedersen.io/api/resume/download')"
         exact
       ></md-tab>
       <md-tab
         id="docker"
         md-label="Docker"
         md-icon="/assets/icons/docker.svg"
-        href="https://hub.docker.com/u/derekpedersen"
-        target="_blank"
+        @click="newWindow('https://hub.docker.com/u/derekpedersen')"
         exact
       ></md-tab>
       <md-tab
         id="stackoverflow"
         md-label="Stackoverflow"
         md-icon="/assets/icons/stackoverflow.svg"
-        href="https://stackoverflow.com/users/1304353/derek-pedersen"
-        target="_blank"
+        @click="newWindow('https://stackoverflow.com/users/1304353/derek-pedersen')"
         exact
       ></md-tab>
       <md-tab
         id="hackerrank"
         md-label="Hackerrank"
         md-icon="/assets/icons/hackerrank.svg"
-        href="https://www.hackerrank.com/derekpedersen"
-        target="_blank"
+        @click="newWindow('https://www.hackerrank.com/derekpedersen')"
         exact
       ></md-tab>
       <md-tab
         id="codefights"
         md-label="Codefights"
         md-icon="/assets/icons/codefights.svg"
-        href="https://app.codesignal.com/profile/drockem"
+        @click="newWindow('https://app.codesignal.com/profile/drockem')"
         exact
       ></md-tab>
     </md-tabs>
@@ -123,7 +121,13 @@ Vue.use(MdIcon);
 const AppProps = Vue.extend({
   props: {
     propMessage: String
-  }
+  },
+  methods: {
+    // since md-tabs doesn't natively support opening a link a new window
+    newWindow: function (url: string) {   
+          window.open(url, "_blank");    
+    }
+  } 
 });
 
 @Component({
