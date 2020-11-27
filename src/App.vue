@@ -4,8 +4,8 @@
       <md-tab 
         id="home" 
         md-label="Home" 
-        to="/" 
         md-icon="home"
+        to="/" 
         exact
       ></md-tab>
       <md-tab
