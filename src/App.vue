@@ -6,6 +6,7 @@
         md-label="Home" 
         to="/" 
         md-icon="home"
+        exact
       ></md-tab>
       <md-tab
         id="about"
