@@ -78,6 +78,13 @@
         @click="newWindow('https://app.codesignal.com/profile/drockem')"
         exact
       ></md-tab>
+      <md-tab
+        id="jira"
+        md-label="Jira"
+        md-icon="/assets/icons/jira.svg"
+        @click="newWindow('https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7')"
+        exact
+      ></md-tab>
     </md-tabs>
     <router-view />
   </div>
