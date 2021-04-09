@@ -87,6 +87,12 @@
     </md-tabs>
 </template>
 
+<style>
+  .md-tabs-navigation{
+      background-color:#002878 !important
+  }
+</style>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";

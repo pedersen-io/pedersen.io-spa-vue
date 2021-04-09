@@ -11,7 +11,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: #89cff0;
+  min-height: 100vh;
 }
 </style>
 
@@ -21,15 +22,17 @@
 @include md-register-theme(
   "default",
   (
-    primary: md-get-palette-color(purple, A200),
-    // The primary color of your application
-      accent: md-get-palette-color(red, A200),
-    // The accent or secondary color
-      theme: dark,
-    // This can be dark or light
-      linkExactActiveClass: white
+    primary: #ffc528,
+    accent:#002878,
+    theme: light,
+    background:#002878,
+    linkExactActiveClass: white
   )
 );
+
+// $material-light: (
+//   'background': #002878
+// );
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 </style>
