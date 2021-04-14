@@ -9,9 +9,6 @@
     </Subdomain>
     <md-card>
       <md-table>
-        <!-- <md-table-toolbar>
-          <h1 class="md-title">Currently Utilized Skills</h1>
-        </md-table-toolbar> -->
         <md-table-row>
           <md-table-head>Tech</md-table-head>
           <md-table-head md-numeric>Experience (Years)</md-table-head>
@@ -70,9 +67,11 @@
   margin: 4px;
   display: inline-block;
   vertical-align: top;
+  color: #fff6dd;
 }
 .md-card > .md-table {
   text-align: left;
+  color: #fff6dd;
 }
 .md-divider {
   padding: 5px;
@@ -83,7 +82,6 @@ import Vue from "vue";
 import {
   MdCard,
   MdTable,
-  MdTableToolbar,
   MdLayout,
   MdRipple,
   MdDivider,

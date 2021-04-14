@@ -36,23 +36,17 @@ const SubdomainProps = Vue.extend({
 
 @Component({
   components: {},
-  // Vuex's component binding helper can use here
   computed: mapState(["count"]),
   methods: mapMutations(["increment"])
 })
 export default class Subdomain extends SubdomainProps {
   // inital data
-  // msg: string = "new message";
-  // use prop values for initial data
-  helloMsg: string = "Hello, " + this.propMessage;
+
   // annotate refs type
   $refs!: {
     subdomainComponent: Subdomain;
   };
-  // additional declaration is needed
-  // when you declare some properties in `Component` decorator
-  count!: number;
-  increment!: () => void;
+
   // lifecycle hook
   mounted() {}
 }
