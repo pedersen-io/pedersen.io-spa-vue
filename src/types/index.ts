@@ -1,4 +1,4 @@
 export interface Site {
-    domain: string,
-    thumbnail: string
+  domain: string;
+  thumbnail: string;
 }

@@ -13,6 +13,7 @@
   text-align: center;
   background-color: #89cff0;
   min-height: 100vh;
+  color: #fff6dd;
 }
 </style>
 
@@ -23,16 +24,11 @@
   "default",
   (
     primary: #ffc528,
-    accent:#002878,
+    accent: #002878,
     theme: light,
-    background:#002878,
-    linkExactActiveClass: white
+    background: #002878
   )
 );
-
-// $material-light: (
-//   'background': #002878
-// );
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 </style>
@@ -45,8 +41,7 @@ const AppProps = Vue.extend({
   props: {
     propMessage: String
   },
-  methods: {
-  }, 
+  methods: {},
   components: {
     Navbar
   }

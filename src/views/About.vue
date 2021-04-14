@@ -56,6 +56,7 @@
     </md-card>
   </div>
 </template>
+
 <style>
 .md-card {
   width: 45%;
@@ -71,6 +72,7 @@
   padding: 5px;
 }
 </style>
+
 <script lang="ts">
 import Vue from "vue";
 import { MdCard, MdLayout, MdDivider } from "vue-material/dist/components";
@@ -81,6 +83,6 @@ Vue.use(MdDivider);
 
 export default {
   name: "about",
-  components: {}
+  components: {},
 };
 </script>
