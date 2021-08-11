@@ -6,16 +6,20 @@
         propMessage="I'm a baby"
         destination="https://jasper.pedersen.io"
         imagefile="jasper_nightlight.jpg"
+        class="md-layout-item md-small-size-100 md-xsmall-size-100"
       />
       <Subdomain
         name="Marissa Pedersen"
         propMessage="www.postcardstoseattle.com"
         destination="https://postcardstoseattle.com"
         imagefile="marissa_and_jp.jpg"
+        class="md-layout-item md-small-size-100 md-xsmall-size-100"
       />
     </div>
   </div>
 </template>
+
+<style></style>
 
 <script lang="ts">
 import Vue from "vue";

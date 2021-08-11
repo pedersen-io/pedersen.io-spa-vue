@@ -1,20 +1,14 @@
 <template>
-  <div class="md-layout md-alignment-top-center">
+  <div class="md-layout  md-medium-size-50 md-alignment-top-center">
     <Subdomain
-      class="
-        md-layout-item md-small-size-100 md-xsmall-size-100
-      "
+      class="md-layout-item md-small-size-100 md-xsmall-size-100"
       imagefile="derek_and_jasper.jpg"
       name="Derek Pedersen"
       destination="https://derek.pedersen.io"
       propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
     >
     </Subdomain>
-    <md-card
-      class="
-        md-layout-item md-small-size-100 md-xsmall-size-100
-      "
-    >
+    <md-card class="md-layout-item md-small-size-100 md-xsmall-size-100">
       <md-table>
         <md-table-row>
           <md-table-head>Tech</md-table-head>
@@ -68,6 +62,7 @@
     </md-card>
   </div>
 </template>
+
 <style>
 .md-card {
   margin: 8px;
@@ -79,6 +74,7 @@
   color: #fff6dd;
 }
 </style>
+
 <script lang="ts">
 import Vue from "vue";
 import {
@@ -87,7 +83,7 @@ import {
   MdLayout,
   MdRipple,
   MdDivider,
-  MdContent,
+  MdContent
 } from "vue-material/dist/components";
 import Subdomain from "@/components/Subdomain.vue";
 
@@ -101,7 +97,7 @@ Vue.use(MdContent);
 export default {
   name: "home",
   components: {
-    Subdomain,
-  },
+    Subdomain
+  }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout md-alignment-top-center">
     <md-card
-      class="md-layout-item md-xlarge-size-48 md-large-size-48 md-medium-size-100 md-small-size-100 md-xsmall-size-100"
+      class="md-layout-item md-xlarge-size-100 md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100"
     >
       <md-card-header>
         <div class="md-title">Derek Pedersen</div>
@@ -59,17 +59,10 @@
 
 <style>
 .md-card {
-  width: 45%;
-  margin: 4px;
-  display: inline-block;
-  vertical-align: top;
   text-align: left;
 }
 .md-card > .md-table {
   text-align: left;
-}
-.md-divider {
-  padding: 5px;
 }
 </style>
 
@@ -83,6 +76,6 @@ Vue.use(MdDivider);
 
 export default {
   name: "about",
-  components: {},
+  components: {}
 };
 </script>

@@ -53,20 +53,7 @@
   </md-card>
 </template>
 
-<style>
-.md-card {
-  width: 45%;
-  margin: 4px;
-  display: inline-block;
-  vertical-align: top;
-}
-.md-card > .md-table {
-  text-align: left;
-}
-.md-divider {
-  padding: 5px;
-}
-</style>
+<style></style>
 
 <script lang="ts">
 import Vue from "vue";
@@ -78,7 +65,7 @@ import {
   MdLayout,
   MdRipple,
   MdDivider,
-  MdContent,
+  MdContent
 } from "vue-material/dist/components";
 
 Vue.use(MdCard);
@@ -91,13 +78,13 @@ Vue.use(MdTableToolbar);
 
 const TechSkillzProps = Vue.extend({
   props: {
-    propMessage: String,
+    propMessage: String
   },
-  methods: {},
+  methods: {}
 });
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class TechSkillz extends TechSkillzProps {}
 </script>

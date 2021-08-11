@@ -103,18 +103,18 @@ Vue.use(MdIcon);
 
 const NavbarProps = Vue.extend({
   props: {
-    propMessage: String,
+    propMessage: String
   },
   methods: {
     // since md-tabs doesn't natively support opening a link in a new window/tab
-    newWindow: function (url: string) {
+    newWindow: function(url: string) {
       window.open(url, "_blank");
-    },
-  },
+    }
+  }
 });
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class Navbar extends NavbarProps {}
 </script>

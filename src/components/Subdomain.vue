@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Site } from "@/types"; // Our interface
 import Component from "vue-class-component";
 import { MdButton, MdCard } from "vue-material/dist/components";
 import { mapState, mapMutations } from "vuex";
