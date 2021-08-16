@@ -9,6 +9,13 @@
       exact
     ></md-tab>
     <md-tab
+      id="projects"
+      md-label="Projects"
+      md-icon="/assets/icons/hammer.svg"
+      @click="newWindow('https://derekpedersen.github.io/#projects')"
+      exact
+    ></md-tab>
+    <md-tab
       id="family"
       md-label="Family"
       md-icon="people"
@@ -103,18 +110,18 @@ Vue.use(MdIcon);
 
 const NavbarProps = Vue.extend({
   props: {
-    propMessage: String
+    propMessage: String,
   },
   methods: {
     // since md-tabs doesn't natively support opening a link in a new window/tab
-    newWindow: function(url: string) {
+    newWindow: function (url: string) {
       window.open(url, "_blank");
-    }
-  }
+    },
+  },
 });
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Navbar extends NavbarProps {}
 </script>
