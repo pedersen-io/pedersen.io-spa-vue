@@ -9,17 +9,17 @@
       exact
     ></md-tab>
     <md-tab
-      id="projects"
-      md-label="Projects"
-      md-icon="/assets/icons/hammer.svg"
-      @click="newWindow('https://derekpedersen.github.io/#projects')"
-      exact
-    ></md-tab>
-    <md-tab
       id="family"
       md-label="Family"
       md-icon="people"
       to="/family"
+      exact
+    ></md-tab>
+    <md-tab
+      id="projects"
+      md-label="Projects"
+      md-icon="/assets/icons/hammer.svg"
+      @click="newWindow('https://derekpedersen.github.io/#projects')"
       exact
     ></md-tab>
     <md-tab

@@ -8,7 +8,7 @@
       </md-table-row>
       <md-table-row>
         <md-table-cell>Golang</md-table-cell>
-        <md-table-cell md-numeric>3</md-table-cell>
+        <md-table-cell md-numeric></md-table-cell>
         <md-table-cell
           >Simply the best. What you see is what you get.</md-table-cell
         >
@@ -65,7 +65,7 @@ import {
   MdLayout,
   MdRipple,
   MdDivider,
-  MdContent
+  MdContent,
 } from "vue-material/dist/components";
 
 Vue.use(MdCard);
@@ -76,15 +76,29 @@ Vue.use(MdDivider);
 Vue.use(MdContent);
 Vue.use(MdTableToolbar);
 
-const TechSkillzProps = Vue.extend({
+const TechskillzProps = Vue.extend({
   props: {
-    propMessage: String
+    propMessage: String,
   },
-  methods: {}
+  methods: {
+    yearsExperience: function (startYear: number) {
+      return new Date().getFullYear() - startYear;
+    },
+  },
 });
 
 @Component({
-  components: {}
+  components: {},
 })
-export default class TechSkillz extends TechSkillzProps {}
+export default class Techskillz extends TechskillzProps {
+  // inital data
+
+  // annotate refs type
+  $refs!: {
+    techskillzComponent: Techskillz;
+  };
+
+  // lifecycle hook
+  mounted() {}
+}
 </script>
