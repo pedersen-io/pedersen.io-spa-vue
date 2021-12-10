@@ -76,7 +76,7 @@ Vue.use(MdDivider);
 Vue.use(MdContent);
 Vue.use(MdTableToolbar);
 
-const TechskillzProps = Vue.extend({
+const TechProps = Vue.extend({
   props: {
     propMessage: String,
   },
@@ -90,12 +90,12 @@ const TechskillzProps = Vue.extend({
 @Component({
   components: {},
 })
-export default class Techskillz extends TechskillzProps {
+export default class Tech extends TechProps {
   // inital data
 
   // annotate refs type
   $refs!: {
-    techskillzComponent: Techskillz;
+    techskillzComponent: Tech;
   };
 
   // lifecycle hook

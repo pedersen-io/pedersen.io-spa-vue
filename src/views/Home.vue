@@ -8,7 +8,7 @@
       propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
     >
     </Subdomain>
-    <Techskillz></Techskillz>
+    <Tech></Tech>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ import {
   MdContent
 } from "vue-material/dist/components";
 import Subdomain from "@/components/Subdomain.vue";
-import Techskillz from "@/components/Techskillz.vue";
+import Tech from "@/components/Tech.vue";
 
 Vue.use(MdCard);
 Vue.use(MdTable);
@@ -48,7 +48,7 @@ export default {
   name: "home",
   components: {
     Subdomain,
-    Techskillz
+    Tech
   }
 };
 </script>
