@@ -6,9 +6,8 @@
       name="Derek Pedersen"
       destination="https://derek.pedersen.io"
       propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
-    >
-    </Subdomain>
-    <Tech></Tech>
+    />>
+    <Tech />
   </div>
 </template>
 
@@ -25,24 +24,8 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import {
-  MdCard,
-  MdTable,
-  MdLayout,
-  MdRipple,
-  MdDivider,
-  MdContent
-} from "vue-material/dist/components";
 import Subdomain from "@/components/Subdomain.vue";
 import Tech from "@/components/Tech.vue";
-
-Vue.use(MdCard);
-Vue.use(MdTable);
-Vue.use(MdLayout);
-Vue.use(MdRipple);
-Vue.use(MdDivider);
-Vue.use(MdContent);
 
 export default {
   name: "home",
