@@ -1,6 +1,5 @@
 <template>
   <md-card>
-    <!-- TODO: table should be populated by a call to Resume API -->
     <md-table>
       <md-table-row>
         <md-table-head>Tech</md-table-head>

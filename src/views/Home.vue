@@ -1,13 +1,16 @@
 <template>
-  <div class="md-layout  md-medium-size-50 md-alignment-top-center">
-    <Subdomain
-      class="md-layout-item md-small-size-100 md-xsmall-size-100"
-      imagefile="derek_and_jasper.jpg"
-      name="Derek Pedersen"
-      destination="https://derek.pedersen.io"
-      propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
-    />>
-    <Tech />
+  <div class="md-layout md-alignment-top-center">
+    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-50 md-xsmall-size-100">
+      <Subdomain
+        imagefile="derek_and_jasper.jpg"
+        name="Derek Pedersen"
+        destination="https://derek.pedersen.io"
+        propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
+      />
+    </div>
+    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-50 md-xsmall-size-100">
+      <Tech />
+    </div>
   </div>
 </template>
 
