@@ -114,7 +114,7 @@ const NavbarProps = Vue.extend({
   },
   methods: {
     // since md-tabs doesn't natively support opening a link in a new window/tab
-    newWindow: function (url: string) {
+    newWindow: function(url: string) {
       window.open(url, "_blank");
     },
   },

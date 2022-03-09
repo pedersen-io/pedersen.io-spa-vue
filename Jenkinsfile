@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Publish') {
             when {
-                expression { env.BRANCH_NAME == 'master' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                expression { env.BRANCH_NAME == 'master' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
