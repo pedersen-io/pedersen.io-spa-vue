@@ -68,11 +68,10 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { MdCard, MdLayout, MdDivider } from "vue-material/dist/components";
+import { MdCard, MdLayout } from "vue-material/dist/components";
 
 Vue.use(MdCard);
 Vue.use(MdLayout);
-Vue.use(MdDivider);
 
 export default {
   name: "about",

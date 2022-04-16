@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <navbar />
+    <div class="md-xsmall-hide md-small-hide">
+      <navbar />
+    </div>
+    <div class="md-medium-hide md-large-hide md-xlarge-hide">
+      <menu />
+    </div>
     <router-view />
   </div>
 </template>
@@ -25,7 +30,7 @@
     primary: #ffc528,
     accent: #002878,
     theme: light,
-    background: #002878
+    background: #002878,
   )
 );
 
@@ -35,19 +40,21 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import Navbar from "@/components/Navbar.vue";
+import Menu from "@/components/Menu.vue";
 
 const AppProps = Vue.extend({
   props: {
-    propMessage: String
+    propMessage: String,
   },
   methods: {},
   components: {
-    Navbar
-  }
+    Navbar,
+    Menu,
+  },
 });
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class App extends AppProps {}
 </script>
