@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div class="md-xsmall-hide md-small-hide">
+    <div>
       <navbar />
-    </div>
-    <div class="md-medium-hide md-large-hide md-xlarge-hide">
-      <menu />
     </div>
     <router-view />
   </div>
@@ -40,7 +37,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import Navbar from "@/components/Navbar.vue";
-import Menu from "@/components/Menu.vue";
 
 const AppProps = Vue.extend({
   props: {
@@ -49,7 +45,6 @@ const AppProps = Vue.extend({
   methods: {},
   components: {
     Navbar,
-    Menu,
   },
 });
 
