@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar />
+    <Nav />
     <router-view />
   </div>
 </template>
@@ -25,7 +25,7 @@
     primary: #ffc528,
     accent: #002878,
     theme: light,
-    background: #002878
+    background: #002878,
   )
 );
 
@@ -34,20 +34,20 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Navbar from "@/components/Navbar.vue";
+import Nav from "@/components/Nav.vue";
 
 const AppProps = Vue.extend({
   props: {
-    propMessage: String
+    propMessage: String,
   },
   methods: {},
   components: {
-    Navbar
-  }
+    Nav
+  },
 });
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class App extends AppProps {}
 </script>
