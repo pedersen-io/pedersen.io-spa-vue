@@ -34,7 +34,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Nav from "@/components/Nav.vue";
+import Nav from "@/views/Nav.vue";
 
 const AppProps = Vue.extend({
   props: {

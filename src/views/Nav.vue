@@ -15,8 +15,8 @@
 }
 
 .md-menu-content {
-    min-height: auto;
-    max-height: 100%;
+  min-height: auto;
+  max-height: 100%;
 }
 
 @media screen and (min-width: 959px) {
@@ -31,27 +31,16 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import Navbar from "@/components/Navbar.vue";
 import Sidenav from "@/components/Sidenav.vue";
-import { MdIcon, MdTabs, MdMenu, MdList } from "vue-material/dist/components";
-
-Vue.use(MdTabs);
-Vue.use(MdIcon);
-Vue.use(MdMenu);
-Vue.use(MdList);
 
 const NavProps = Vue.extend({
   props: {
     propMessage: String,
   },
-  methods: {
-    // since md-tabs doesn't natively support opening a link in a new window/tab
-    newWindow: function(url: string) {
-      window.open(url, "_blank");
-    },
-  },
+  methods: {},
   components: {
     Navbar,
-    Sidenav
-  }
+    Sidenav,
+  },
 });
 
 @Component({

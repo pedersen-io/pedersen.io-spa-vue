@@ -31,6 +31,14 @@
         </md-list-item>
 
         <md-list-item
+          id="tech"
+          md-label="Tech"
+          @click="$router.push({ path: '/tech' })"
+          ><md-icon>laptop</md-icon>
+          <span class="md-list-item-text">Tech</span>
+        </md-list-item>
+
+        <md-list-item
           id="about"
           md-label="About"
           @click="$router.push({ path: '/about' })"
