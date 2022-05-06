@@ -1,76 +1,75 @@
 <template>
-  <div id="nav">
-    <div id="tabs" class="md-layout-item md-small-hide">
-      <md-tabs md-sync-route>
-        <md-tab id="home" md-label="Home" md-icon="home" to="/" exact></md-tab>
-        <md-tab
-          id="about"
-          md-label="About"
-          md-icon="info"
-          to="/about"
-          exact
-        ></md-tab>
-        <md-tab
-          id="family"
-          md-label="Family"
-          md-icon="people"
-          to="/family"
-          exact
-        ></md-tab>
-        <md-tab
-          id="projects"
-          md-label="Projects"
-          md-icon="/assets/icons/hammer.svg"
-          @click="newWindow('https://derekpedersen.github.io/#projects')"
-          exact
-        ></md-tab>
-        <md-tab
-          id="github"
-          md-label="Github"
-          md-icon="/assets/icons/github-box.svg"
-          @click="newWindow('https://github.com/derekpedersen')"
-          exact
-        ></md-tab>
-        <md-tab
-          id="jenkins"
-          md-label="Jenkins"
-          md-icon="/assets/icons/jenkins.svg"
-          @click="newWindow('https://jenkins.pedersen.io')"
-          exact
-        ></md-tab>
-        <md-tab
-          id="linkedin"
-          md-label="Linkedin"
-          md-icon="/assets/icons/linkedin-box.svg"
-          @click="
-            newWindow('https://www.linkedin.com/in/derek-pedersen-67105415/')
-          "
-          exact
-        ></md-tab>
-        <md-tab
-          id="resume"
-          md-label="Resume"
-          md-icon="/assets/icons/file-pdf-box.svg"
-          @click="newWindow('https://derek.pedersen.io/api/resume/download')"
-          exact
-        ></md-tab>
-        <md-tab
-          id="docker"
-          md-label="Docker"
-          md-icon="/assets/icons/docker.svg"
-          @click="newWindow('https://hub.docker.com/u/derekpedersen')"
-          exact
-        ></md-tab>
-        <md-tab
-          id="stackoverflow"
-          md-label="Stackoverflow"
-          md-icon="/assets/icons/stackoverflow.svg"
-          @click="
-            newWindow('https://stackoverflow.com/users/1304353/derek-pedersen')
-          "
-          exact
-        ></md-tab>
-        <!-- <md-tab
+  <div id="tabs">
+    <md-tabs md-sync-route>
+      <md-tab id="home" md-label="Home" md-icon="home" to="/" exact></md-tab>
+      <md-tab
+        id="about"
+        md-label="About"
+        md-icon="info"
+        to="/about"
+        exact
+      ></md-tab>
+      <md-tab
+        id="family"
+        md-label="Family"
+        md-icon="people"
+        to="/family"
+        exact
+      ></md-tab>
+      <md-tab
+        id="projects"
+        md-label="Projects"
+        md-icon="/assets/icons/hammer.svg"
+        @click="newWindow('https://derekpedersen.github.io/#projects')"
+        exact
+      ></md-tab>
+      <md-tab
+        id="github"
+        md-label="Github"
+        md-icon="/assets/icons/github-box.svg"
+        @click="newWindow('https://github.com/derekpedersen')"
+        exact
+      ></md-tab>
+      <md-tab
+        id="jenkins"
+        md-label="Jenkins"
+        md-icon="/assets/icons/jenkins.svg"
+        @click="newWindow('https://jenkins.pedersen.io')"
+        exact
+      ></md-tab>
+      <md-tab
+        id="linkedin"
+        md-label="Linkedin"
+        md-icon="/assets/icons/linkedin-box.svg"
+        @click="
+          newWindow('https://www.linkedin.com/in/derek-pedersen-67105415/')
+        "
+        exact
+      ></md-tab>
+      <md-tab
+        id="resume"
+        md-label="Resume"
+        md-icon="/assets/icons/file-pdf-box.svg"
+        @click="newWindow('https://derek.pedersen.io/api/resume/download')"
+        exact
+      ></md-tab>
+      <md-tab
+        id="docker"
+        md-label="Docker"
+        md-icon="/assets/icons/docker.svg"
+        @click="newWindow('https://hub.docker.com/u/derekpedersen')"
+        exact
+      ></md-tab>
+      <md-tab
+        id="stackoverflow"
+        md-label="Stackoverflow"
+        md-icon="/assets/icons/stackoverflow.svg"
+        @click="
+          newWindow('https://stackoverflow.com/users/1304353/derek-pedersen')
+        "
+        exact
+      ></md-tab>
+      <!-- <md-tab
           id="hackerrank"
           md-label="Hackerrank"
           md-icon="/assets/icons/hackerrank.svg"
@@ -84,123 +83,18 @@
           @click="newWindow('https://app.codesignal.com/profile/drockem')"
           exact
         ></md-tab> -->
-        <md-tab
-          id="jira"
-          md-label="Jira"
-          md-icon="/assets/icons/jira.svg"
-          @click="
-            newWindow(
-              'https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7'
-            )
-          "
-          exact
-        ></md-tab>
-      </md-tabs>
-    </div>
-    <div id="menu" class="md-layout-item">
-      <md-menu md-direction="bottom-start" md-size="auto">
-        <md-button md-menu-trigger><md-icon>menu</md-icon></md-button>
-        <md-menu-content>
-          <md-menu-item @click="$router.push({ path: '/home' })"
-            ><md-icon>home</md-icon></md-menu-item
-          >
-          <md-menu-item
-            id="about"
-            md-label="About"
-            @click="$router.push({ path: '/about' })"
-            exact
-            ><md-icon>info</md-icon></md-menu-item
-          >
-          <md-menu-item
-            id="family"
-            md-label="Family"
-            @click="$router.push({ path: '/famiy' })"
-            exact
-            ><md-icon>people</md-icon></md-menu-item
-          >
-          <md-menu-item
-            id="projects"
-            md-label="Projects"
-            @click="newWindow('https://derekpedersen.github.io/#projects')"
-            exact
-            ><md-icon md-src="/assets/icons/hammer.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="github"
-            md-label="Github"
-            @click="newWindow('https://github.com/derekpedersen')"
-            exact
-            ><md-icon md-src="/assets/icons/github-box.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="jenkins"
-            md-label="Jenkins"
-            @click="newWindow('https://jenkins.pedersen.io')"
-            exact
-            ><md-icon md-src="/assets/icons/jenkins.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="linkedin"
-            md-label="Linkedin"
-            @click="
-              newWindow('https://www.linkedin.com/in/derek-pedersen-67105415/')
-            "
-            exact
-            ><md-icon md-src="/assets/icons/linkedin-box.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="resume"
-            md-label="Resume"
-            @click="newWindow('https://derek.pedersen.io/api/resume/download')"
-            exact
-            ><md-icon md-src="/assets/icons/file-pdf-box.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="docker"
-            md-label="Docker"
-            @click="newWindow('https://hub.docker.com/u/derekpedersen')"
-            exact
-            ><md-icon md-src="/assets/icons/docker.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="stackoverflow"
-            md-label="Stackoverflow"
-            @click="
-              newWindow(
-                'https://stackoverflow.com/users/1304353/derek-pedersen'
-              )
-            "
-            exact
-            ><md-icon md-src="/assets/icons/stackoverflow.svg"
-          /></md-menu-item>
-          <!-- <md-menu-item
-            id="hackerrank"
-            md-label="Hackerrank"
-            @click="newWindow('https://www.hackerrank.com/derekpedersen')"
-            exact
-            ><md-icon md-src="/assets/icons/hackerrank.svg"
-          /></md-menu-item>
-          <md-menu-item
-            id="codefights"
-            md-label="Codefights"
-            @click="newWindow('https://app.codesignal.com/profile/drockem')"
-            exact
-            ><md-icon md-src="/assets/icons/codefights.svg"
-          /></md-menu-item> -->
-          <md-menu-item
-            id="jira"
-            md-label="Jira"
-            @click="
-              newWindow(
-                'https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7'
-              )
-            "
-            exact
-            ><md-icon md-src="/assets/icons/jira.svg"
-          /></md-menu-item>
-        </md-menu-content>
-      </md-menu>
-    </div>
+      <md-tab
+        id="jira"
+        md-label="Jira"
+        md-icon="/assets/icons/jira.svg"
+        @click="
+          newWindow(
+            'https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7'
+          )
+        "
+        exact
+      ></md-tab>
+    </md-tabs>
   </div>
 </template>
 
@@ -214,8 +108,8 @@
 }
 
 .md-menu-content {
-    min-height: auto;
-    max-height: 100%;
+  min-height: auto;
+  max-height: 100%;
 }
 
 @media screen and (min-width: 959px) {

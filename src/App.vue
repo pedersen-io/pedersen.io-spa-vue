@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div>
-      <navbar />
-    </div>
+    <Nav />
     <router-view />
   </div>
 </template>
@@ -36,7 +34,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Navbar from "@/components/Navbar.vue";
+import Nav from "@/components/Nav.vue";
 
 const AppProps = Vue.extend({
   props: {
@@ -44,7 +42,7 @@ const AppProps = Vue.extend({
   },
   methods: {},
   components: {
-    Navbar,
+    Nav
   },
 });
 
