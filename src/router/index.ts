@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Family from "../views/Family.vue";
-// import Thoughts from "../views/Thoughts.vue";
+import Thoughts from "../views/Thoughts.vue";
 
 import Tech from "../components/Tech.vue";
 
@@ -33,11 +33,11 @@ const routes = [
     name: "tech",
     component: Tech
   },
-  // {
-  //   path: "/thoughts",
-  //   name: "thoughts",
-  //   component: Thoughts
-  // }
+  {
+    path: "/thoughts",
+    name: "thoughts",
+    component: Thoughts
+  }
 ];
 
 const router = new VueRouter({

@@ -17,6 +17,13 @@
         exact
       ></md-tab>
       <md-tab
+        id="thoughts"
+        md-label="Thoughts"
+        md-icon="self_improvement"
+        to="/thoughts"
+        exact
+      ></md-tab>
+      <md-tab
         id="projects"
         md-label="Projects"
         md-icon="/assets/icons/hammer.svg"

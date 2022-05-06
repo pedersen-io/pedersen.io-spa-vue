@@ -17,6 +17,7 @@
 </style>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Material+Icons");
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme(

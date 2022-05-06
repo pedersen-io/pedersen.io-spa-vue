@@ -55,6 +55,14 @@
         </md-list-item>
 
         <md-list-item
+          id="thoughts"
+          md-label="Thoughts"
+          @click="$router.push({ path: '/thoughts' })"
+          ><md-icon>self_improvement</md-icon>
+          <span class="md-list-item-text">thoughts</span>
+        </md-list-item>
+
+        <md-list-item
           id="projects"
           md-label="Projects"
           @click="newWindow('https://derekpedersen.github.io/#projects')"
