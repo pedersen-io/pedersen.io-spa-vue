@@ -133,19 +133,7 @@
 </template>
 
 <style>
-@media screen and (min-width: 959px) {
-  #sidenav {
-    display: none;
-  } /* hide it on larger screens */
-}
 
-.md {
-  min-height: 350px;
-  border: 1px solid rgba(#000, 0.12);
-}
-
-.sidenav-title {
-}
 </style>
 
 <script lang="ts">

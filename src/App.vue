@@ -42,7 +42,7 @@ const AppProps = Vue.extend({
   },
   methods: {},
   components: {
-    Nav
+    Nav,
   },
 });
 

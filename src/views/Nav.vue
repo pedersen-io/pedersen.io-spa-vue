@@ -10,15 +10,6 @@
   background-color: #002878 !important;
 }
 
-.md-tabs-navigation {
-  background-color: #002878 !important;
-}
-
-.md-menu-content {
-  min-height: auto;
-  max-height: 100%;
-}
-
 @media screen and (min-width: 959px) {
   #sidenav {
     display: none;
