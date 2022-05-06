@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <Navbar class="md-layout-item md-small-hide" />
-    <Sidenav />
+    <Sidenav id="sidenav" class="md-layout-item md-small-show" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@
 }
 
 @media screen and (min-width: 959px) {
-  #menu {
+  #sidenav {
     display: none;
   } /* hide it on larger screens */
 }

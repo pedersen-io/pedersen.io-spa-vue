@@ -1,51 +1,127 @@
 <template>
   <div class="page-container">
-    <md-app>
-      <md-app-toolbar class="md-primary">
-        <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
-          <md-icon>menu</md-icon>
-        </md-button>
-        <span class="md-title">My Title</span>
-      </md-app-toolbar>
+    <md-toolbar class="md-primary">
+      <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <md-button>
+        <span class="md-title">pedersen.io</span>
+      </md-button>
+    </md-toolbar>
 
-      <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
-        <md-toolbar class="md-transparent" md-elevation="0">
-          <span>Navigation</span>
+    <md-drawer :md-active.sync="menuVisible">
+      <md-toolbar class="md-transparent" md-elevation="0">
+      <md-button>
+        <span class="md-title">pedersen.io</span>
+      </md-button>
 
-          <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button md-dense" @click="toggleMenu">
-              <md-icon>keyboard_arrow_left</md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
+        <div class="md-toolbar-section-end">
+          <md-button class="md-icon-button md-dense" @click="toggleMenu">
+            <md-icon>keyboard_arrow_left</md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
 
-        <md-list>
-          <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
-          </md-list-item>
+      <md-list>
+        <md-list-item
+          id="home"
+          md-label="Home"
+          @click="$router.push({ path: '/' })"
+          ><md-icon>home</md-icon>
+          <span class="md-list-item-text">Home</span>
+        </md-list-item>
 
-          <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
-          </md-list-item>
+        <md-list-item
+          id="about"
+          md-label="About"
+          @click="$router.push({ path: '/about' })"
+          ><md-icon>info</md-icon>
+          <span class="md-list-item-text">About</span>
+        </md-list-item>
 
-          <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
-          </md-list-item>
+        <md-list-item
+          id="family"
+          md-label="Family"
+          @click="$router.push({ path: '/family' })"
+          ><md-icon>people</md-icon>
+          <span class="md-list-item-text">Family</span>
+        </md-list-item>
 
-          <md-list-item>
-            <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
-          </md-list-item>
-        </md-list>
-      </md-app-drawer>
+        <md-list-item
+          id="projects"
+          md-label="Projects"
+          @click="newWindow('https://derekpedersen.github.io/#projects')"
+          ><md-icon md-src="/assets/icons/hammer.svg">hammer</md-icon>
+          <span class="md-list-item-text">Projects</span>
+        </md-list-item>
 
-      <md-app-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea.
-      </md-app-content>
-    </md-app>
+        <md-list-item
+          id="github"
+          md-label="Github"
+          @click="newWindow('https://github.com/derekpedersen')"
+          ><md-icon md-src="/assets/icons/github-box.svg">github</md-icon>
+          <span class="md-list-item-text">Github</span>
+        </md-list-item>
+
+        <md-list-item
+          id="jenkins"
+          md-label="Jenkins"
+          @click="newWindow('https://jenkins.pedersen.io')"
+          ><md-icon md-src="/assets/icons/jenkins.svg">jenkins</md-icon>
+          <span class="md-list-item-text">Jenkins</span>
+        </md-list-item>
+
+        <md-list-item
+          id="linkedin"
+          md-label="LinkedIn"
+          @click="
+            newWindow('https://www.linkedin.com/in/derek-pedersen-67105415/')
+          "
+          ><md-icon md-src="/assets/icons/linkedin-box.svg">linkedin</md-icon>
+          <span class="md-list-item-text">LinkedIn</span>
+        </md-list-item>
+
+        <md-list-item
+          id="resume"
+          md-label="Resume"
+          @click="newWindow('https://derek.pedersen.io/api/resume/download')"
+          ><md-icon md-src="/assets/icons/file-pdf-box.svg">resume</md-icon>
+          <span class="md-list-item-text">Resume</span>
+        </md-list-item>
+
+        <md-list-item
+          id="docker"
+          md-label="Docker"
+          @click="newWindow('https://hub.docker.com/u/derekpedersen')"
+          ><md-icon md-src="/assets/icons/docker.svg">docker</md-icon>
+          <span class="md-list-item-text">Docker</span>
+        </md-list-item>
+
+        <md-list-item
+          id="stackoverflow"
+          md-label="StackOverflow"
+          @click="
+            newWindow('https://stackoverflow.com/users/1304353/derek-pedersen')
+          "
+          ><md-icon md-src="/assets/icons/stackoverflow.svg"
+            >stackoverflow</md-icon
+          >
+          <span class="md-list-item-text">StackOverflow</span>
+        </md-list-item>
+
+        <md-list-item
+          id="jira"
+          md-label="Jira"
+          @click="
+            newWindow(
+              'https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7'
+            )
+          "
+          ><md-icon md-src="/assets/icons/jira.svg">jira</md-icon>
+          <span class="md-list-item-text">Jira</span>
+        </md-list-item>
+      </md-list>
+    </md-drawer>
   </div>
 </template>
 
@@ -55,16 +131,23 @@
     display: none;
   } /* hide it on larger screens */
 }
+
+.md {
+  min-height: 350px;
+  border: 1px solid rgba(#000, 0.12);
+}
+
+.sidenav-title {
+}
 </style>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { MdIcon, MdTabs, MdMenu, MdList } from "vue-material/dist/components";
+import { MdDrawer, MdList, MdIcon } from "vue-material/dist/components";
 
-Vue.use(MdTabs);
+Vue.use(MdDrawer);
 Vue.use(MdIcon);
-Vue.use(MdMenu);
 Vue.use(MdList);
 
 const NavbarProps = Vue.extend({
