@@ -11,7 +11,7 @@
         <md-table-cell md-numeric
           >2016 - present ({{ yearsExperience(2016) }})</md-table-cell
         >
-        <md-table-cell
+        <md-table-cell class="md-xsmall-hide"
           >Simply the best. What you see is what you get.</md-table-cell
         >
       </md-table-row>
@@ -20,40 +20,32 @@
         <md-table-cell md-numeric
           >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
         >
-        <md-table-cell>As easy as Sunday mornings.</md-table-cell>
+        <md-table-cell class="md-xsmall-hide"
+          >As easy as Sunday mornings.</md-table-cell
+        >
       </md-table-row>
       <md-table-row>
         <md-table-cell>Helm</md-table-cell>
         <md-table-cell md-numeric
           >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
         >
-        <md-table-cell>As easy as Sunday mornings.</md-table-cell>
+        <md-table-cell class="md-xsmall-hide"
+          >Better than Sunday brunch.</md-table-cell
+        >
       </md-table-row>
       <md-table-row>
         <md-table-cell>Docker</md-table-cell>
         <md-table-cell md-numeric
           >2015 - present ({{ yearsExperience(2015) }})</md-table-cell
         >
-        <md-table-cell></md-table-cell>
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Java</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
+        <md-table-cell class="md-xsmall-hide"
+          >The one that changed them all.</md-table-cell
         >
-        <md-table-cell>1 billion devices and contracting.</md-table-cell>
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Ruby on Rails</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell>I don't like Ruby on Rails.</md-table-cell>
       </md-table-row>
       <md-table-row>
         <md-table-cell>C#</md-table-cell>
         <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell
+        <md-table-cell class="md-xsmall-hide"
           >Spent a lot of time with .NET starting at 3.0 till
           4.6.</md-table-cell
         >
@@ -61,9 +53,9 @@
       <md-table-row>
         <md-table-cell>Visual Basic</md-table-cell>
         <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell
+        <md-table-cell class="md-xsmall-hide"
           >If you work in a .NET shop that existed before 2010, you will
-          encounter Visual Basic.</md-table-cell
+          encounter VB.</md-table-cell
         >
       </md-table-row>
       <md-table-row>
@@ -71,7 +63,7 @@
         <md-table-cell md-numeric
           >2014 - present ({{ yearsExperience(2014) }})</md-table-cell
         >
-        <md-table-cell
+        <md-table-cell class="md-xsmall-hide"
           >Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my
           favorite frontend framework.</md-table-cell
         >
@@ -81,9 +73,8 @@
         <md-table-cell md-numeric
           >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
         >
-        <md-table-cell
-          >It has grown on me, but I'd probably pick Vue over React for a
-          greenfield project.</md-table-cell
+        <md-table-cell class="md-xsmall-hide"
+          >It has grown on me for sure.</md-table-cell
         >
       </md-table-row>
       <md-table-row>
@@ -91,9 +82,27 @@
         <md-table-cell md-numeric
           >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
         >
-        <md-table-cell
+        <md-table-cell class="md-xsmall-hide"
           >If only putting together a small frontend this is now my default
           choice.</md-table-cell
+        >
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>Java</md-table-cell>
+        <md-table-cell md-numeric
+          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
+        >
+        <md-table-cell class="md-xsmall-hide"
+          >1 billion devices and contracting.</md-table-cell
+        >
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>Ruby on Rails</md-table-cell>
+        <md-table-cell md-numeric
+          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
+        >
+        <md-table-cell class="md-xsmall-hide"
+          >I do not like Ruby on Rails.</md-table-cell
         >
       </md-table-row>
     </md-table>
@@ -122,7 +131,7 @@ const TechProps = Vue.extend({
     propMessage: String,
   },
   methods: {
-    yearsExperience: function (startYear: number) {
+    yearsExperience: function(startYear: number) {
       return new Date().getFullYear() - startYear;
     },
   },

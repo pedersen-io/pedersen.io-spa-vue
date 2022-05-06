@@ -7,7 +7,8 @@
       <md-card-area>
         <md-card-header> </md-card-header>
         <md-card-actions>
-          {{ propMessage }} |
+          <div class="md-xsmall-hide">{{ propMessage }}</div>
+          &nbsp;|&nbsp;
           <md-button :href="`${destination}`">{{ name }}</md-button>
         </md-card-actions>
       </md-card-area>
@@ -29,14 +30,14 @@ const SubdomainProps = Vue.extend({
     propMessage: String,
     destination: String,
     imagefile: String,
-    name: String
-  }
+    name: String,
+  },
 });
 
 @Component({
   components: {},
   computed: mapState(["count"]),
-  methods: mapMutations(["increment"])
+  methods: mapMutations(["increment"]),
 })
 export default class Subdomain extends SubdomainProps {
   // inital data
