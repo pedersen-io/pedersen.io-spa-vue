@@ -1,6 +1,6 @@
 <template>
   <div class="md-layout md-alignment-top-center">
-    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-50 md-xsmall-size-100">
+    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100">
       <Subdomain
         imagefile="derek_and_jasper.jpg"
         name="Derek Pedersen"
@@ -8,7 +8,7 @@
         propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
       />
     </div>
-    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-50 md-xsmall-size-100">
+    <div class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100">
       <Tech />
     </div>
   </div>

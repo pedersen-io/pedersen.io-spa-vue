@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <Navbar class="md-layout-item md-small-hide" />
-    <Sidenav id="sidenav" class="md-layout-item md-small-show" />
+    <Sidenav id="sidenav" class="md-layout-item" />
   </div>
 </template>
 
