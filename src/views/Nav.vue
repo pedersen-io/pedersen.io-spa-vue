@@ -24,9 +24,7 @@ import Navbar from "@/components/Navbar.vue";
 import Sidenav from "@/components/Sidenav.vue";
 
 const NavProps = Vue.extend({
-  props: {
-    propMessage: String,
-  },
+  props: {},
   methods: {},
   components: {
     Navbar,

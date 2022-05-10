@@ -38,9 +38,7 @@ import Component from "vue-class-component";
 import Nav from "@/views/Nav.vue";
 
 const AppProps = Vue.extend({
-  props: {
-    propMessage: String,
-  },
+  props: {},
   methods: {},
   components: {
     Nav,

@@ -118,8 +118,6 @@ import { MdIcon, MdTabs, MdMenu, MdList } from "vue-material/dist/components";
 
 Vue.use(MdTabs);
 Vue.use(MdIcon);
-Vue.use(MdMenu);
-Vue.use(MdList);
 
 const NavbarProps = Vue.extend({
   props: {

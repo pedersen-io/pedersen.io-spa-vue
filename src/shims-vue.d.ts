@@ -9,9 +9,11 @@ declare module "vue-material/dist/components" {
   // export type PluginFunction<T> = (Vue: typeof _Vue, options?: T) => void;
   export function MdApp(Vue: typeof _Vue, options?: any): void;
   export function MdAppContent(Vue: typeof _Vue, options?: any): void;
+  export function MdAvatar(Vue: typeof _Vue, options?: any): void;
   export function MdButton(Vue: typeof _Vue, options?: any): void;
   export function MdCard(Vue: typeof _Vue, options?: any): void;
   export function MdContent(Vue: typeof _Vue, options?: any): void;
+  export function MdDivider(Vue: typeof _Vue, options?: any): void;
   export function MdDrawer(Vue: typeof _Vue, options?: any): void;
   export function MdIcon(Vue: typeof _Vue, options?: any): void;
   export function MdLayout(Vue: typeof _Vue, options?: any): void;
