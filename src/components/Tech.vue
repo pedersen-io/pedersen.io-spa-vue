@@ -114,17 +114,9 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import {
-  MdCard,
-  MdTable,
-  MdRipple,
-  MdContent,
-} from "vue-material/dist/components";
+import { MdTable } from "vue-material/dist/components";
 
-Vue.use(MdCard);
 Vue.use(MdTable);
-Vue.use(MdRipple);
-Vue.use(MdContent);
 
 const TechProps = Vue.extend({
   props: {

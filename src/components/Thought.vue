@@ -1,21 +1,23 @@
 <template>
-    <md-list-item>
-      <md-avatar>
-        <img src="https://placeimg.com/40/40/people/1" alt="People" />
-      </md-avatar>
+  <md-list-item>
+    <md-avatar>
+      <md-icon :md-src="require(`@/assets/icons/${icon}.svg`)">{{
+        icon
+      }}</md-icon>
+    </md-avatar>
 
-      <div class="md-list-item-text">
-        <span>Return of the Lazy Developer</span>
-        <span>Stop doing so much</span>
-        <p>
-          This was a prevalant topic in the mid-2010s when I would be out at lunch with colleagues but seems to have died out in popularity as of late. It doesn't stress not doing any work, but rather puts an emphasis on the type of work a good engineer should be engaging in.
-        </p>
-      </div>
+    <div class="md-list-item-text">
+      <span>{{ title }}</span>
+      <span>{{ subtitle }}</span>
+      <p>
+        {{ post }}
+      </p>
+    </div>
 
-      <md-button class="md-icon-button md-list-action">
-        <md-icon class="md-primary">star</md-icon>
-      </md-button>
-    </md-list-item>
+    <md-button class="md-icon-button md-list-action">
+      <md-icon class="md-primary">star</md-icon>
+    </md-button>
+  </md-list-item>
 </template>
 
 <style></style>
@@ -23,11 +25,24 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import {
+  MdAvatar,
+  MdButton,
+  MdIcon,
+  MdList,
+} from "vue-material/dist/components";
 
+Vue.use(MdAvatar);
+Vue.use(MdButton);
+Vue.use(MdIcon);
+Vue.use(MdList);
 
 const ThoughtProps = Vue.extend({
   props: {
-    propMessage: String,
+    title: String,
+    subtitle: String,
+    post: String,
+    icon: String,
   },
   methods: {
     yearsExperience: function(startYear: number) {

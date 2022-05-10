@@ -147,12 +147,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { MdDrawer, MdList, MdIcon, MdToolbar } from "vue-material/dist/components";
+import { MdButton, MdDrawer, MdIcon, MdList } from "vue-material/dist/components";
 
+Vue.use(MdButton);
 Vue.use(MdDrawer);
 Vue.use(MdIcon);
 Vue.use(MdList);
-Vue.use(MdToolbar);
 
 const NavbarProps = Vue.extend({
   props: {

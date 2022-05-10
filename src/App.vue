@@ -37,18 +37,8 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import Nav from "@/views/Nav.vue";
 
-import { MdIcon, MdTabs, MdMenu, MdList, MdDivider } from "vue-material/dist/components";
-
-Vue.use(MdDivider);
-Vue.use(MdIcon);
-Vue.use(MdList);
-Vue.use(MdMenu);
-Vue.use(MdTabs);
-
 const AppProps = Vue.extend({
-  props: {
-    propMessage: String,
-  },
+  props: {},
   methods: {},
   components: {
     Nav,
