@@ -61,9 +61,6 @@
 .md-card {
   text-align: left;
 }
-.md-card > .md-table {
-  text-align: left;
-}
 </style>
 
 <script lang="ts">
@@ -75,6 +72,6 @@ Vue.use(MdLayout);
 
 export default {
   name: "about",
-  components: {}
+  components: {},
 };
 </script>

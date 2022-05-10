@@ -114,8 +114,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { MdTable } from "vue-material/dist/components";
+import { MdContent, MdRipple, MdTable } from "vue-material/dist/components";
 
+Vue.use(MdContent);
+Vue.use(MdRipple);
 Vue.use(MdTable);
 
 const TechProps = Vue.extend({

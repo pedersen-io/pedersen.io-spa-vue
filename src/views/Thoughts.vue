@@ -17,6 +17,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import Thought from "@/components/Thought.vue";
+import { MdDivider } from "vue-material/dist/components";
+
+Vue.use(MdDivider);
 
 const ThoughtsProps = Vue.extend({
   props: {},

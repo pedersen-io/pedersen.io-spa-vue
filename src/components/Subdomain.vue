@@ -16,6 +16,18 @@
   </md-card>
 </template>
 
+<style>
+.md-card {
+  margin: 8px;
+  vertical-align: top;
+  color: #fff6dd;
+}
+.md-card > .md-table {
+  text-align: left;
+  color: #fff6dd;
+}
+</style>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";

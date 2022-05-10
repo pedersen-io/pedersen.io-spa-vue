@@ -12,9 +12,9 @@
     <md-drawer :md-active.sync="menuVisible">
       <md-toolbar class="md-primary" md-elevation="0">
         <div class="md-toolbar-section-end">
-        <md-button @click="toggleMenu">
-          <span class="md-title">pedersen.io</span>
-        </md-button>
+          <md-button @click="toggleMenu">
+            <span class="md-title">pedersen.io</span>
+          </md-button>
           <md-button class="md-icon-button md-dense" @click="toggleMenu">
             <md-icon>keyboard_arrow_left</md-icon>
           </md-button>
@@ -140,19 +140,24 @@
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { MdButton, MdDrawer, MdIcon, MdList } from "vue-material/dist/components";
+import {
+  MdButton,
+  MdDrawer,
+  MdIcon,
+  MdList,
+  MdToolbar,
+} from "vue-material/dist/components";
 
 Vue.use(MdButton);
 Vue.use(MdDrawer);
 Vue.use(MdIcon);
 Vue.use(MdList);
+Vue.use(MdToolbar);
 
 const NavbarProps = Vue.extend({
   props: {

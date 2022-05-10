@@ -31,6 +31,11 @@
 );
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
+
+.md-card > .md-table {
+  text-align: left;
+  color: #fff6dd;
+}
 </style>
 <script lang="ts">
 import Vue from "vue";

@@ -18,17 +18,7 @@
   </div>
 </template>
 
-<style>
-.md-card {
-  margin: 8px;
-  vertical-align: top;
-  color: #fff6dd;
-}
-.md-card > .md-table {
-  text-align: left;
-  color: #fff6dd;
-}
-</style>
+<style></style>
 
 <script lang="ts">
 import Subdomain from "@/components/Subdomain.vue";

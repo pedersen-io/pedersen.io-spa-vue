@@ -31,7 +31,7 @@ Vue.use(MdLayout);
 export default {
   name: "family",
   components: {
-    Subdomain
-  }
+    Subdomain,
+  },
 };
 </script>
