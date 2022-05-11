@@ -13,6 +13,7 @@ declare module "vue-material/dist/components" {
   export function MdButton(Vue: typeof _Vue, options?: any): void;
   export function MdCard(Vue: typeof _Vue, options?: any): void;
   export function MdContent(Vue: typeof _Vue, options?: any): void;
+  export function MdDialog(Vue: typeof _Vue, options?: any): void;
   export function MdDivider(Vue: typeof _Vue, options?: any): void;
   export function MdDrawer(Vue: typeof _Vue, options?: any): void;
   export function MdIcon(Vue: typeof _Vue, options?: any): void;

@@ -22,10 +22,6 @@
   vertical-align: top;
   color: #fff6dd;
 }
-.md-card > .md-table {
-  text-align: left;
-  color: #fff6dd;
-}
 </style>
 
 <script lang="ts">

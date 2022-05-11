@@ -11,26 +11,31 @@
   </md-list>
 </template>
 
-<style></style>
+<style>
+.md-list {
+  margin: 8px !important;
+}
+</style>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
 import Thought from "@/components/Thought.vue";
-import { MdDivider } from "vue-material/dist/components";
+import { MdDivider, MdList } from "vue-material/dist/components";
 
 Vue.use(MdDivider);
+Vue.use(MdList);
 
 const ThoughtsProps = Vue.extend({
   props: {},
   methods: {},
   components: {
-    Thought,
-  },
+    Thought
+  }
 });
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class Thoughts extends ThoughtsProps {}
 </script>
