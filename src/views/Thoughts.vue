@@ -2,10 +2,22 @@
   <md-list class="md-triple-line">
     <md-divider class="md-inset"></md-divider>
     <Thought
-      title="Return of the Lazy Developer"
+      title="The Return of the Lazy Developer"
       subtitle="Stop doing so much"
       post="This was a prevalant topic in the mid-2010s when I would be out at lunch with colleagues but seems to have died out in popularity as of late. It doesn't stress not doing any work, but rather puts an emphasis on the type of work a good engineer should be engaging in."
       icon="hammer"
+    />
+    <Thought
+      title="Clean Architecture"
+      subtitle="No circular dependencies here"
+      post="Dependencies are only allowed to be inherited in one direction, inward. Luckily Golang prevents ciruclar dependencies but I've ran into some absolutely untenable .NET implementations that define spaghetti code."
+      icon="track_changes"
+    />
+    <Thought
+      title="Code is Documentation"
+      subtitle="Source files are for humans, not for machines"
+      post="Not as documenation, but it is the documenation. That's right, I expect to be able to read your code and make sense of it without having to reference some UML diagrams or manual. This approach favors being explicit not only in our intentions "
+      icon="track_changes"
     />
     <md-divider class="md-inset"></md-divider>
   </md-list>
@@ -30,12 +42,12 @@ const ThoughtsProps = Vue.extend({
   props: {},
   methods: {},
   components: {
-    Thought
-  }
+    Thought,
+  },
 });
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Thoughts extends ThoughtsProps {}
 </script>
