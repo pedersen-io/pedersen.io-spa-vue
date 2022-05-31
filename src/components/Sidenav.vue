@@ -59,7 +59,15 @@
           md-label="Thoughts"
           @click="$router.push({ path: '/thoughts' })"
           ><md-icon>self_improvement</md-icon>
-          <span class="md-list-item-text">thoughts</span>
+          <span class="md-list-item-text">Thoughts</span>
+        </md-list-item>
+
+        <md-list-item
+          id="celebrity-skateboards"
+          md-label="Celebrity Skateboards"
+          @click="newWindow('https://celebrityskateboards.com')"
+          ><md-icon>skateboarding</md-icon>
+          <span class="md-list-item-text">Celebrity Skateboards</span>
         </md-list-item>
 
         <md-list-item

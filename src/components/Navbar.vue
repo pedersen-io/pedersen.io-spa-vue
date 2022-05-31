@@ -24,6 +24,13 @@
         exact
       ></md-tab>
       <md-tab
+        id="celebrity-skateboards"
+        md-label="Celebrity Skateboards"
+        md-icon="skateboarding"
+        @click="newWindow('https://celebrityskateboards.com')"
+        exact
+      ></md-tab>
+      <md-tab
         id="projects"
         md-label="Projects"
         md-icon="/assets/icons/hammer.svg"
