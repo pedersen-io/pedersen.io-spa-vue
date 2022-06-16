@@ -25,7 +25,7 @@
       ></md-tab>
       <md-tab
         id="celebrity-skateboards"
-        md-label="Celebrity Skateboards"
+        md-label="Celebrity"
         md-icon="skateboarding"
         @click="newWindow('https://celebrityskateboards.com')"
         exact
