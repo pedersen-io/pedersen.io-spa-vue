@@ -15,7 +15,7 @@
     "set-version": "sed -i -e 's/^version:.*$/version: '$(date '+%Y.%m%d.%H%M')'/' -e 's/^appVersion:.*$/appVersion: '$(git rev-parse HEAD)'/' .helm/Chart.yaml"
   },
   "dependencies": {
-    "core-js": "^3.22.4",
+    "core-js": "^3.25.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.10",
     "vue-material": "^1.0.0-beta-15",
