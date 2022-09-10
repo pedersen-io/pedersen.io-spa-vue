@@ -15,8 +15,14 @@
     />
     <Thought
       title="Code is Documentation"
-      subtitle="Source files are for humans, not for machines"
-      post="Not as documenation, but it is the documenation. That's right, I expect to be able to read your code and make sense of it without having to reference some UML diagrams or manual. This approach favors being explicit not only in our intentions "
+      subtitle="Source files are for humans"
+      post="Not as documenation, it is the documenation. That's right. I expect to be able to read your code and make sense of it without having to reference some UML diagrams or manual. This approach favors being explicit over being implicit."
+      icon="track_changes"
+    />
+    <Thought
+      title="SCM is for Source Code"
+      subtitle="We don't commit build artifacts"
+      post="It's the source code, running the build operations should produce the same output at any given time. Thus we don't need or want to commit any build artifacts."
       icon="track_changes"
     />
     <md-divider class="md-inset"></md-divider>
