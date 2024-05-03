@@ -9,8 +9,8 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "docker:build": "docker build ./ -t pedersen-io-spa-vue",
-    "docker:tag": "docker tag pedersen-io-spa-vue us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)",
-    "docker:publish": "gcloud docker -- push us.gcr.io/sleipnir/pedersen-io-spa-vue:$(git rev-parse HEAD)",
+    "docker:tag": "docker tag pedersen-io-spa-vue derekpedersen/pedersen-homepage:$(git rev-parse HEAD)",
+    "docker:publish": "docker push derekpedersen/pedersen-homepage:$(git rev-parse HEAD)",
     "deploy": "helm upgrade pedersen-spa .helm",
     "set-version": "sed -i -e 's/^version:.*$/version: '$(date '+%Y.%m%d.%H%M')'/' -e 's/^appVersion:.*$/appVersion: '$(git rev-parse HEAD)'/' .helm/Chart.yaml"
   },
