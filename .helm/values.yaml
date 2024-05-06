@@ -53,6 +53,10 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+    - host: www.jasperpedersen.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
    - secretName: pedersen-com-tls
      hosts:
