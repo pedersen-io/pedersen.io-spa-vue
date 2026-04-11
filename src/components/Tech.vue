@@ -1,139 +1,86 @@
 <template>
-  <md-card>
-    <md-table>
-      <md-table-row>
-        <md-table-head>Tech</md-table-head>
-        <md-table-head md-numeric>Experience (Years)</md-table-head>
-        <md-table-head></md-table-head>
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Golang</md-table-cell>
-        <md-table-cell md-numeric
-          >2016 - present ({{ yearsExperience(2016) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Simply the best. What you see is what you get.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Kubernetes</md-table-cell>
-        <md-table-cell md-numeric
-          >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >As easy as Sunday mornings.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Helm</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Better than Sunday brunch.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Docker</md-table-cell>
-        <md-table-cell md-numeric
-          >2015 - present ({{ yearsExperience(2015) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >The one that changed them all.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>C#</md-table-cell>
-        <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell class="md-xsmall-hide"
-          >Spent a lot of time with .NET starting at 3.0 till
-          4.6.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Visual Basic</md-table-cell>
-        <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell class="md-xsmall-hide"
-          >If you work in a .NET shop that existed before 2010, you will
-          encounter VB.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Angular</md-table-cell>
-        <md-table-cell md-numeric
-          >2014 - present ({{ yearsExperience(2014) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my
-          favorite frontend framework.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>React</md-table-cell>
-        <md-table-cell md-numeric
-          >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >It has grown on me for sure.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Vue</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >If only putting together a small frontend this is now my default
-          choice.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Java</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >1 billion devices and contracting.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Ruby on Rails</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >I do not like Ruby on Rails.</md-table-cell
-        >
-      </md-table-row>
-    </md-table>
-  </md-card>
+  <section class="table-card layout-item">
+    <table>
+      <thead>
+        <tr>
+          <th>Tech</th>
+          <th>Experience (Years)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Golang</td>
+          <td>{{ yearsExperience(2016) }}</td>
+          <td>Simply the best. What you see is what you get.</td>
+        </tr>
+        <tr>
+          <td>Kubernetes</td>
+          <td>{{ yearsExperience(2017) }}</td>
+          <td>As easy as Sunday mornings.</td>
+        </tr>
+        <tr>
+          <td>Helm</td>
+          <td>{{ yearsExperience(2019) }}</td>
+          <td>Better than Sunday brunch.</td>
+        </tr>
+        <tr>
+          <td>Docker</td>
+          <td>{{ yearsExperience(2015) }}</td>
+          <td>The one that changed them all.</td>
+        </tr>
+        <tr>
+          <td>C#</td>
+          <td>6</td>
+          <td>Spent a lot of time with .NET starting at 3.0 till 4.6.</td>
+        </tr>
+        <tr>
+          <td>Visual Basic</td>
+          <td>6</td>
+          <td>If you work in a .NET shop that existed before 2010, you will encounter VB.</td>
+        </tr>
+        <tr>
+          <td>Angular</td>
+          <td>{{ yearsExperience(2014) }}</td>
+          <td>Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my favorite frontend framework.</td>
+        </tr>
+        <tr>
+          <td>React</td>
+          <td>{{ yearsExperience(2017) }}</td>
+          <td>It has grown on me for sure.</td>
+        </tr>
+        <tr>
+          <td>Vue</td>
+          <td>{{ yearsExperience(2019) }}</td>
+          <td>If only putting together a small frontend this is now my default choice.</td>
+        </tr>
+        <tr>
+          <td>Java</td>
+          <td>{{ yearsExperience(2019) }}</td>
+          <td>1 billion devices and contracting.</td>
+        </tr>
+        <tr>
+          <td>Ruby on Rails</td>
+          <td>{{ yearsExperience(2019) }}</td>
+          <td>I do not like Ruby on Rails.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </template>
 
-<style></style>
-
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { MdContent, MdRipple, MdTable } from "vue-material/dist/components";
+import { defineComponent } from "vue";
 
-Vue.use(MdContent);
-Vue.use(MdRipple);
-Vue.use(MdTable);
-
-const TechProps = Vue.extend({
-  props: {
-    propMessage: String,
-  },
-  methods: {
-    yearsExperience: function(startYear: number) {
-      return new Date().getFullYear() - startYear;
-    },
+export default defineComponent({
+  name: "AppTech",
+  setup() {
+    const yearsExperience = (startYear: number) => new Date().getFullYear() - startYear;
+    return {
+      yearsExperience,
+    };
   },
 });
-
-@Component({
-  name: "Tech",
-  components: {},
-})
-export default class Tech extends TechProps {}
 </script>
+
+<style></style>

@@ -1,34 +1,31 @@
 <template>
-  <div class="md-layout md-alignment-top-center">
-    <div
-      class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100"
-    >
-      <Subdomain
+  <div class="layout">
+    <div class="layout-item">
+      <AppSubdomain
         imagefile="derek_and_jasper.jpg"
         name="Derek Pedersen"
         destination="https://derek.pedersen.io"
         propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
       />
     </div>
-    <div
-      class="md-layout-item md-large-size-50 md-medium-size-50 md-small-size-100 md-xsmall-size-100"
-    >
+    <div class="layout-item">
       <Tech />
     </div>
   </div>
 </template>
 
-<style></style>
-
 <script lang="ts">
-import Subdomain from "@/components/Subdomain.vue";
+import { defineComponent } from "vue";
+import AppSubdomain from "@/components/Subdomain.vue";
 import Tech from "@/components/Tech.vue";
 
-export default {
-  name: "home",
+export default defineComponent({
+  name: "HomeView",
   components: {
-    Subdomain,
+    AppSubdomain,
     Tech,
   },
-};
+});
 </script>
+
+<style></style>

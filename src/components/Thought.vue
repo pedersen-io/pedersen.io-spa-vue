@@ -1,79 +1,71 @@
 <template>
-  <md-list-item>
-    <md-avatar>
-      <md-icon :md-src="require(`@/assets/icons/${icon}.svg`)">{{
-        icon
-      }}</md-icon>
-    </md-avatar>
-
-    <div class="md-list-item-text">
-      <span>{{ title }}</span>
-      <span>{{ subtitle }}</span>
-      <p>
-        {{ post }}
-      </p>
+  <article class="thought-item">
+    <div class="thought-header">
+      <img v-if="iconUrl" :src="iconUrl" alt="icon" class="thought-icon" />
+      <div>
+        <strong>{{ title }}</strong>
+        <div>{{ subtitle }}</div>
+      </div>
     </div>
 
-    <md-button class="md-icon-button md-list-action" @click="showDialog = true">
-      <md-icon class="md-primary">menu_book</md-icon>
-    </md-button>
-    <md-dialog :md-active.sync="showDialog">
-      <md-dialog-title>{{ title }}</md-dialog-title>
-      <p class="dialog-content">
-        {{ post }}
-      </p>
-      <md-dialog-actions>
-        <md-button class="md-primary" @click="showDialog = false"
-          >Close</md-button
-        >
-      </md-dialog-actions>
-    </md-dialog>
-  </md-list-item>
+    <p>{{ post }}</p>
+
+    <button type="button" class="primary-button" @click="showDialog = true">
+      Read more
+    </button>
+
+    <div v-if="showDialog" class="overlay" @click.self="showDialog = false">
+      <div class="dialog-panel">
+        <h3>{{ title }}</h3>
+        <p>{{ post }}</p>
+        <button type="button" @click="showDialog = false">Close</button>
+      </div>
+    </div>
+  </article>
 </template>
 
-<style>
-.dialog-content {
-  margin: 15px;
-}
-</style>
+<script setup lang="ts">
+import { computed, defineOptions, ref } from "vue";
 
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import {
-  MdAvatar,
-  MdButton,
-  MdDialog,
-  MdIcon,
-  MdList,
-} from "vue-material/dist/components";
-
-Vue.use(MdAvatar);
-Vue.use(MdButton);
-Vue.use(MdDialog);
-Vue.use(MdIcon);
-Vue.use(MdList);
-
-const ThoughtProps = Vue.extend({
-  props: {
-    title: String,
-    subtitle: String,
-    post: String,
-    icon: String,
-  },
-  methods: {
-    yearsExperience: function(startYear: number) {
-      return new Date().getFullYear() - startYear;
-    },
-  },
-  data: () => ({
-    showDialog: false,
-  }),
+defineOptions({
+  name: "AppThought",
 });
 
-@Component({
-  name: "Thought",
-  components: {},
-})
-export default class Thought extends ThoughtProps {}
+const props = defineProps<{
+  title: string;
+  subtitle: string;
+  post: string;
+  icon: string;
+}>();
+
+const showDialog = ref(false);
+const iconUrl = computed(() => require(`@/assets/icons/${props.icon}.svg`));
 </script>
+
+<style>
+.dialog-panel {
+  background: #ffffff;
+  color: #002878;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 520px;
+  margin: 10vh auto;
+}
+
+.primary-button {
+  border: none;
+  background: #ffc528;
+  color: #002878;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
+}
+</style>
