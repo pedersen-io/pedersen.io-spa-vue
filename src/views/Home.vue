@@ -40,9 +40,15 @@ export default defineComponent({
 }
 
 .layout-item {
-  flex: 0 1 48%;
+  flex: 0 0 320px;
   min-width: 320px;
-  max-width: 48%;
+  max-width: 320px;
+}
+
+.home-layout .layout-item:last-child {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 320px;
 }
 
 @media (max-width: 960px) {
