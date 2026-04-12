@@ -1,6 +1,5 @@
 <template>
   <header class="topbar">
-    <div class="brand">pedersen.io</div>
     <nav class="nav-links">
       <router-link
         v-for="link in navLinks"
@@ -23,11 +22,28 @@
         <span>{{ action.label }}</span>
       </button>
     </nav>
+
+    <details class="mobile-menu">
+      <summary>Menu</summary>
+      <div class="mobile-menu-list">
+        <button
+          v-for="item in mobileItems"
+          :key="item.label"
+          type="button"
+          class="nav-button"
+          @click="item.internal ? navigate(item.url) : newWindow(item.url)"
+        >
+          <img :src="item.iconUrl" :alt="item.label + ' icon'" class="nav-icon" />
+          <span>{{ item.label }}</span>
+        </button>
+      </div>
+    </details>
   </header>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
+import { useRouter } from "vue-router";
 
 type NavLink = { label: string; to: string; icon: string };
 type ExternalAction = { label: string; url: string; icon: string };
@@ -54,12 +70,24 @@ export default defineComponent({
       { label: "Jira", url: "https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7", icon: "jira" },
     ];
 
+    const router = useRouter();
+
     const loadIcon = (name: string) => require(`@/assets/icons/${name}.svg`);
 
+    const navLinksWithIcons = computed(() => navLinks.map((link) => ({ ...link, url: link.to, internal: true, iconUrl: loadIcon(link.icon) })));
+    const externalActionsWithIcons = computed(() => externalActions.map((action) => ({ ...action, url: action.url, internal: false, iconUrl: loadIcon(action.icon) })));
+
+    const mobileItems = computed(() => [...navLinksWithIcons.value, ...externalActionsWithIcons.value]);
+
+    const navigate = (path: string) => router.push(path);
+    const newWindow = (url: string) => window.open(url, "_blank");
+
     return {
-      navLinks: computed(() => navLinks.map((link) => ({ ...link, iconUrl: loadIcon(link.icon) }))),
-      externalActions: computed(() => externalActions.map((action) => ({ ...action, iconUrl: loadIcon(action.icon) }))),
-      newWindow: (url: string) => window.open(url, "_blank"),
+      navLinks: navLinksWithIcons,
+      externalActions: externalActionsWithIcons,
+      mobileItems,
+      navigate,
+      newWindow,
     };
   },
 });
@@ -76,6 +104,10 @@ export default defineComponent({
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+}
+
+.mobile-menu {
+  display: none;
 }
 
 .nav-button {
@@ -104,8 +136,31 @@ export default defineComponent({
 }
 
 @media (max-width: 960px) {
-  .nav-links {
-    display: none;
+  .topbar .nav-links {
+    display: none !important;
+  }
+
+  .topbar .mobile-menu {
+    display: block !important;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  .topbar .mobile-menu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 14px;
+    font: inherit;
+    color: #fff;
+    user-select: none;
+  }
+
+  .topbar .mobile-menu-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
   }
 }
 </style>

@@ -1,6 +1,11 @@
 <template>
   <aside class="sidebar">
-    <div class="sidebar-title">pedersen.io</div>
+    <select class="sidebar-select" v-model="selectedItem" @change="handleSelect">
+      <option value="" disabled selected>Navigate...</option>
+      <option v-for="item in navItems" :key="item.label" :value="item.url">
+        {{ item.label }}
+      </option>
+    </select>
     <nav class="sidebar-nav">
       <button
         v-for="item in navItems"
@@ -17,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { useRouter } from "vue-router";
 
 type NavItem = { label: string; url: string; icon: string; internal: boolean };
@@ -44,12 +49,32 @@ export default defineComponent({
       { label: "Jira", url: "https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7", icon: "jira", internal: false },
     ];
 
+    const selectedItem = ref("");
+
     const loadIcon = (name: string) => require(`@/assets/icons/${name}.svg`);
 
+    const navigate = (path: string) => router.push(path);
+    const newWindow = (url: string) => window.open(url, "_blank");
+
+    const handleSelect = () => {
+      const item = items.find((entry) => entry.url === selectedItem.value);
+      if (!item) return;
+
+      if (item.internal) {
+        navigate(item.url);
+      } else {
+        newWindow(item.url);
+      }
+
+      selectedItem.value = "";
+    };
+
     return {
+      selectedItem,
       navItems: computed(() => items.map((item) => ({ ...item, iconUrl: loadIcon(item.icon) }))),
-      navigate: (path: string) => router.push(path),
-      newWindow: (url: string) => window.open(url, "_blank"),
+      navigate,
+      newWindow,
+      handleSelect,
     };
   },
 });
@@ -97,6 +122,27 @@ export default defineComponent({
 @media (min-width: 959px) {
   .sidebar {
     display: none;
+  }
+}
+
+.sidebar-select {
+  display: none;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+}
+
+@media (max-width: 960px) {
+  .sidebar-nav {
+    display: none !important;
+  }
+
+  .sidebar-select {
+    display: block !important;
   }
 }
 </style>
