@@ -48,9 +48,10 @@ body {
   box-sizing: border-box;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 640px) {
   .main-view {
-    margin-left: 260px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
