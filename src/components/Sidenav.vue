@@ -14,7 +14,11 @@
         class="sidebar-button"
         @click="item.internal ? navigate(item.url) : newWindow(item.url)"
       >
-        <img :src="item.iconUrl" :alt="item.label + ' icon'" class="sidebar-icon" />
+        <img
+          :src="item.iconUrl"
+          :alt="item.label + ' icon'"
+          class="sidebar-icon"
+        />
         <span>{{ item.label }}</span>
       </button>
     </nav>

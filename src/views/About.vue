@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <section class="card layout-item">
+    <section class="card">
       <header class="card-header">
         <h1>Derek Pedersen</h1>
         <p class="subtitle">Quick Facts</p>
