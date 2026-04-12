@@ -43,14 +43,14 @@ body {
 }
 
 .main-view {
-  margin-left: 260px;
+  margin-left: 0;
   padding: 16px;
   box-sizing: border-box;
 }
 
 @media (max-width: 960px) {
   .main-view {
-    margin-left: 0;
+    margin-left: 260px;
   }
 }
 

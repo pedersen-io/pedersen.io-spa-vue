@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="home-layout">
     <div class="layout-item">
       <AppSubdomain
         imagefile="derek_and_jasper.jpg"
@@ -34,9 +34,9 @@ export default defineComponent({
   flex-wrap: wrap;
   gap: 16px;
   align-items: flex-start;
-  justify-content: center;
-  width: min(100%, 1120px);
-  margin: 0 auto;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
 }
 
 .layout-item {
@@ -53,9 +53,19 @@ export default defineComponent({
 }
 
 @media (max-width: 640px) {
-  .layout {
+  .home-layout {
     flex-direction: column;
   }
+}
+
+.home-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
 }
 
 .table-card {
@@ -64,12 +74,18 @@ export default defineComponent({
 
 .table-card table {
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .table-card th,
 .table-card td {
-  word-break: break-word;
+  word-break: normal;
+}
+
+.table-card thead th:nth-child(2),
+.table-card tbody td:nth-child(2) {
+  white-space: nowrap;
+  width: 110px;
 }
 
 .subdomain-card img {
