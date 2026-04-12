@@ -83,4 +83,29 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style>
+.table-card {
+  background: rgba(0, 40, 120, 0.95);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.table-card th,
+.table-card td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.table-card th {
+  font-weight: 700;
+}
+</style>

@@ -28,4 +28,54 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style>
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+}
+
+.layout-item {
+  flex: 0 1 48%;
+  min-width: 320px;
+  max-width: 48%;
+}
+
+@media (max-width: 960px) {
+  .layout-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    flex-direction: column;
+  }
+}
+
+.table-card {
+  min-width: 0;
+}
+
+.table-card table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-card th,
+.table-card td {
+  word-break: break-word;
+}
+
+.subdomain-card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+</style>
