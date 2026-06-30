@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "docker:build": "docker build ./ -t pedersen-io-spa-vue",
+    "docker:build": "docker build ./ -t pedersen-io-spa-vue:latest --no-cache",
     "docker:tag": "docker tag derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "docker:publish": "docker push derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "deploy": "helm upgrade pedersen-spa .helm",
