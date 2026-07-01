@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: us.gcr.io/sleipnir/pedersen-io-spa-vue
+  repository: derekpedersen/pedersen-io-spa-vue
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "" 
 
 serviceAccount:
   # Specifies whether a service account should be created
