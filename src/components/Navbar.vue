@@ -23,15 +23,22 @@
       </button>
     </nav>
 
-    <details class="mobile-menu">
-      <summary>Menu</summary>
+    <details ref="mobileMenu" class="mobile-menu">
+      <summary class="mobile-menu-trigger" aria-label="Open navigation menu">
+        <span class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="mobile-menu-label">Menu</span>
+      </summary>
       <div class="mobile-menu-list">
         <button
           v-for="item in mobileItems"
           :key="item.label"
           type="button"
           class="nav-button"
-          @click="item.internal ? navigate(item.url) : newWindow(item.url)"
+          @click="handleMobileSelect(item)"
         >
           <img :src="item.iconUrl" :alt="item.label + ' icon'" class="nav-icon" />
           <span>{{ item.label }}</span>
@@ -42,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { useRouter } from "vue-router";
 
 type NavLink = { label: string; to: string; icon: string };
@@ -60,7 +67,7 @@ export default defineComponent({
 
     const externalActions: ExternalAction[] = [
       { label: "Celebrity", url: "https://celebrityskateboards.com", icon: "skateboard" },
-      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "codefights" },
+      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "hammer" },
       { label: "Github", url: "https://github.com/derekpedersen", icon: "github-box" },
       { label: "Jenkins", url: "https://jenkins.pedersen.io", icon: "jenkins" },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/derek-pedersen-67105415/", icon: "linkedin-box" },
@@ -71,6 +78,7 @@ export default defineComponent({
     ];
 
     const router = useRouter();
+    const mobileMenu = ref<HTMLDetailsElement | null>(null);
 
     const loadIcon = (name: string) => require(`@/assets/icons/${name}.svg`);
 
@@ -81,13 +89,30 @@ export default defineComponent({
 
     const navigate = (path: string) => router.push(path);
     const newWindow = (url: string) => window.open(url, "_blank");
+    const closeMobileMenu = () => {
+      if (mobileMenu.value) {
+        mobileMenu.value.open = false;
+      }
+    };
+
+    const handleMobileSelect = (item: { internal: boolean; url: string }) => {
+      closeMobileMenu();
+
+      if (item.internal) {
+        navigate(item.url);
+      } else {
+        newWindow(item.url);
+      }
+    };
 
     return {
       navLinks: navLinksWithIcons,
       externalActions: externalActionsWithIcons,
       mobileItems,
+      mobileMenu,
       navigate,
       newWindow,
+      handleMobileSelect,
     };
   },
 });
@@ -148,13 +173,34 @@ export default defineComponent({
     color: #fff;
   }
 
-  .topbar .mobile-menu summary {
+  .topbar .mobile-menu-trigger {
     list-style: none;
     cursor: pointer;
-    padding: 12px 14px;
-    font: inherit;
-    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
     user-select: none;
+  }
+
+  .topbar .mobile-menu-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .topbar .hamburger-icon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .topbar .hamburger-icon span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
   }
 
   .topbar .mobile-menu-list {

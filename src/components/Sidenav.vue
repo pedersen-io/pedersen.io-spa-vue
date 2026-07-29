@@ -43,7 +43,7 @@ export default defineComponent({
       { label: "Family", url: "/family", icon: "track_changes", internal: true },
       { label: "Thoughts", url: "/thoughts", icon: "track_changes", internal: true },
       { label: "Celebrity Skateboards", url: "https://celebrityskateboards.com", icon: "skateboard", internal: false },
-      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "codefights", internal: false },
+      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "hammer", internal: false },
       { label: "Github", url: "https://github.com/derekpedersen", icon: "github-box", internal: false },
       { label: "Jenkins", url: "https://jenkins.pedersen.io", icon: "jenkins", internal: false },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/derek-pedersen-67105415/", icon: "linkedin-box", internal: false },
