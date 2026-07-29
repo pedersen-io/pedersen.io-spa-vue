@@ -16,21 +16,21 @@ pipeline {
         stage('Dependencies') {
             steps{
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'yarn install'
+                    sh 'npm install'
                 }
             }
         }
         stage('Build') {
             steps{
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'yarn build'
+                    sh 'npm run build'
                 }
             }
         }
         stage('Docker') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'yarn docker:build'
+                    sh 'npm run docker:build'
                 }
             }
         }
@@ -41,8 +41,8 @@ pipeline {
             steps {
                 withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
                     dir('/root/workspace/pedersen.io-spa-vue') {
-                        sh 'yarn docker:tag'
-                        sh 'yarn docker:publish'
+                        sh 'npm run docker:tag'
+                        sh 'npm run docker:publish'
                     }
                 }
             }
@@ -53,8 +53,8 @@ pipeline {
             }
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'yarn set-version'
-                    sh 'yarn deploy'
+                    sh 'npm run set-version'
+                    sh 'npm run deploy'
                 }
             }
         }
