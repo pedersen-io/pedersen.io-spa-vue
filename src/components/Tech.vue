@@ -3,66 +3,34 @@
     <table>
       <thead>
         <tr>
-          <th>Tech</th>
-          <th>Experience (Years)</th>
+          <th>
+            <button
+              type="button"
+              class="sort-button"
+              data-test="sort-tech"
+              @click="toggleSort('tech')"
+            >
+              Tech
+            </button>
+          </th>
+          <th>
+            <button
+              type="button"
+              class="sort-button"
+              data-test="sort-experience"
+              @click="toggleSort('experience')"
+            >
+              Experience
+            </button>
+          </th>
           <th>Notes</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Golang</td>
-          <td>{{ yearsExperience(2016) }}</td>
-          <td>Simply the best. What you see is what you get.</td>
-        </tr>
-        <tr>
-          <td>Kubernetes</td>
-          <td>{{ yearsExperience(2017) }}</td>
-          <td>As easy as Sunday mornings.</td>
-        </tr>
-        <tr>
-          <td>Helm</td>
-          <td>{{ yearsExperience(2019) }}</td>
-          <td>Better than Sunday brunch.</td>
-        </tr>
-        <tr>
-          <td>Docker</td>
-          <td>{{ yearsExperience(2015) }}</td>
-          <td>The one that changed them all.</td>
-        </tr>
-        <tr>
-          <td>C#</td>
-          <td>6</td>
-          <td>Spent a lot of time with .NET starting at 3.0 till 4.6.</td>
-        </tr>
-        <tr>
-          <td>Visual Basic</td>
-          <td>6</td>
-          <td>If you work in a .NET shop that existed before 2010, you will encounter VB.</td>
-        </tr>
-        <tr>
-          <td>Angular</td>
-          <td>{{ yearsExperience(2014) }}</td>
-          <td>Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my favorite frontend framework.</td>
-        </tr>
-        <tr>
-          <td>React</td>
-          <td>{{ yearsExperience(2017) }}</td>
-          <td>It has grown on me for sure.</td>
-        </tr>
-        <tr>
-          <td>Vue</td>
-          <td>{{ yearsExperience(2019) }}</td>
-          <td>If only putting together a small frontend this is now my default choice.</td>
-        </tr>
-        <tr>
-          <td>Java</td>
-          <td>{{ yearsExperience(2019) }}</td>
-          <td>1 billion devices and contracting.</td>
-        </tr>
-        <tr>
-          <td>Ruby on Rails</td>
-          <td>{{ yearsExperience(2019) }}</td>
-          <td>I do not like Ruby on Rails.</td>
+        <tr v-for="tech in sortedTech" :key="tech.name">
+          <td>{{ tech.name }}</td>
+          <td>{{ yearsExperience(tech.startYear, tech.endYear) }}</td>
+          <td>{{ tech.notes }}</td>
         </tr>
       </tbody>
     </table>
@@ -70,14 +38,127 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed, ref } from "vue";
+
+type TechEntry = {
+  name: string;
+  startYear: number;
+  endYear?: number;
+  notes: string;
+};
 
 export default defineComponent({
   name: "AppTech",
   setup() {
-    const yearsExperience = (startYear: number) => new Date().getFullYear() - startYear;
+    const techList: TechEntry[] = [
+      {
+        name: "Golang",
+        startYear: 2016,
+        notes: "Simply the best. What you see is what you get.",
+      },
+      {
+        name: "Kubernetes",
+        startYear: 2016,
+        notes: "As easy as Sunday mornings.",
+      },
+      {
+        name: "Helm",
+        startYear: 2019,
+        notes: "Better than Sunday brunch.",
+      },
+      {
+        name: "Docker",
+        startYear: 2014,
+        notes: "The one that changed them all.",
+      },
+      {
+        name: "C#",
+        startYear: 2012,
+        endYear: 2018,
+        notes: "Spent a lot of time with .NET starting at 3.0 till 4.6.",
+      },
+      {
+        name: "Visual Basic",
+        startYear: 2012,
+        endYear: 2016,
+        notes:
+          "If you work in a .NET shop that existed before 2010, you will encounter VB.",
+      },
+      {
+        name: "Angular",
+        startYear: 2013,
+        endYear: 2018,
+        notes:
+          "Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my favorite frontend framework.",
+      },
+      {
+        name: "React",
+        startYear: 2017,
+        endYear: 2022,
+        notes: "It has grown on me for sure.",
+      },
+      {
+        name: "Vue",
+        startYear: 2019,
+        notes:
+          "If only putting together a small frontend this is now my default choice.",
+      },
+      {
+        name: "Java",
+        startYear: 2019,
+        endYear: 2022,
+        notes: "1 billion devices and contracting.",
+      },
+      {
+        name: "Ruby on Rails",
+        startYear: 2019,
+        endYear: 2022,
+        notes: "I do not like Ruby on Rails.",
+      },
+    ];
+
+    const sortColumn = ref<"tech" | "experience">("experience");
+    const sortDirection = ref<"asc" | "desc">("desc");
+
+    const yearsExperience = (startYear: number, endYear?: number) => {
+      const currentYear = endYear ?? new Date().getFullYear();
+      const totalYears = currentYear - startYear;
+      return endYear
+        ? `${totalYears} yrs • ${startYear}-${endYear}`
+        : `${totalYears} yrs • ${startYear}-present`;
+    };
+
+    const getExperienceValue = (entry: TechEntry) => {
+      const endYear = entry.endYear ?? new Date().getFullYear();
+      return endYear - entry.startYear;
+    };
+
+    const sortedTech = computed(() => {
+      return [...techList].sort((a, b) => {
+        if (sortColumn.value === "tech") {
+          const nameCompare = a.name.localeCompare(b.name);
+          return sortDirection.value === "asc" ? nameCompare : -nameCompare;
+        }
+
+        const left = getExperienceValue(a);
+        const right = getExperienceValue(b);
+        return sortDirection.value === "asc" ? left - right : right - left;
+      });
+    });
+
+    const toggleSort = (column: "tech" | "experience") => {
+      if (sortColumn.value === column) {
+        sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc";
+      } else {
+        sortColumn.value = column;
+        sortDirection.value = "desc";
+      }
+    };
+
     return {
+      sortedTech,
       yearsExperience,
+      toggleSort,
     };
   },
 });
@@ -107,5 +188,16 @@ export default defineComponent({
 
 .table-card th {
   font-weight: 700;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
 }
 </style>
