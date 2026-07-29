@@ -18,7 +18,11 @@
         class="nav-button"
         @click="newWindow(action.url)"
       >
-        <img :src="action.iconUrl" :alt="action.label + ' icon'" class="nav-icon" />
+        <img
+          :src="action.iconUrl"
+          :alt="action.label + ' icon'"
+          class="nav-icon"
+        />
         <span>{{ action.label }}</span>
       </button>
     </nav>
@@ -40,7 +44,11 @@
           class="nav-button"
           @click="handleMobileSelect(item)"
         >
-          <img :src="item.iconUrl" :alt="item.label + ' icon'" class="nav-icon" />
+          <img
+            :src="item.iconUrl"
+            :alt="item.label + ' icon'"
+            class="nav-icon"
+          />
           <span>{{ item.label }}</span>
         </button>
       </div>
@@ -51,41 +59,49 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { useRouter } from "vue-router";
+import { navigationItems, type NavigationItem } from "@/navigation";
 
 type NavLink = { label: string; to: string; icon: string };
+
 type ExternalAction = { label: string; url: string; icon: string };
 
 export default defineComponent({
   name: "AppNavbar",
   setup() {
-    const navLinks: NavLink[] = [
-      { label: "Home", to: "/", icon: "home" },
-      { label: "About", to: "/about", icon: "about" },
-      { label: "Family", to: "/family", icon: "family" },
-      { label: "Thoughts", to: "/thoughts", icon: "thoughts" },
-    ];
+    const navLinks: NavLink[] = navigationItems
+      .filter((item) => item.internal)
+      .map((item) => ({ label: item.label, to: item.url, icon: item.icon }));
 
-    const externalActions: ExternalAction[] = [
-      { label: "Celebrity", url: "https://celebrityskateboards.com", icon: "skateboard" },
-      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "hammer" },
-      { label: "Github", url: "https://github.com/derekpedersen", icon: "github-box" },
-      { label: "Jenkins", url: "https://jenkins.pedersen.io", icon: "jenkins" },
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/derek-pedersen-67105415/", icon: "linkedin-box" },
-      { label: "Resume", url: "https://derek.pedersen.io/api/resume/download", icon: "file-pdf-box" },
-      { label: "Docker", url: "https://hub.docker.com/u/derekpedersen", icon: "docker" },
-      { label: "StackOverflow", url: "https://stackoverflow.com/users/1304353/derek-pedersen", icon: "stackoverflow" },
-      { label: "Jira", url: "https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7", icon: "jira" },
-    ];
+    const externalActions: ExternalAction[] = navigationItems
+      .filter((item) => !item.internal)
+      .map((item) => ({ label: item.label, url: item.url, icon: item.icon }));
 
     const router = useRouter();
     const mobileMenu = ref<HTMLDetailsElement | null>(null);
 
     const loadIcon = (name: string) => require(`@/assets/icons/${name}.svg`);
 
-    const navLinksWithIcons = computed(() => navLinks.map((link) => ({ ...link, url: link.to, internal: true, iconUrl: loadIcon(link.icon) })));
-    const externalActionsWithIcons = computed(() => externalActions.map((action) => ({ ...action, url: action.url, internal: false, iconUrl: loadIcon(action.icon) })));
+    const navLinksWithIcons = computed(() =>
+      navLinks.map((link) => ({
+        ...link,
+        url: link.to,
+        internal: true,
+        iconUrl: loadIcon(link.icon),
+      }))
+    );
+    const externalActionsWithIcons = computed(() =>
+      externalActions.map((action) => ({
+        ...action,
+        url: action.url,
+        internal: false,
+        iconUrl: loadIcon(action.icon),
+      }))
+    );
 
-    const mobileItems = computed(() => [...navLinksWithIcons.value, ...externalActionsWithIcons.value]);
+    const mobileItems = computed(() => [
+      ...navLinksWithIcons.value,
+      ...externalActionsWithIcons.value,
+    ]);
 
     const navigate = (path: string) => router.push(path);
     const newWindow = (url: string) => window.open(url, "_blank");
@@ -95,7 +111,7 @@ export default defineComponent({
       }
     };
 
-    const handleMobileSelect = (item: { internal: boolean; url: string }) => {
+    const handleMobileSelect = (item: NavigationItem) => {
       closeMobileMenu();
 
       if (item.internal) {

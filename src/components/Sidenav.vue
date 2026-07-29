@@ -1,6 +1,10 @@
 <template>
   <aside class="sidebar">
-    <select class="sidebar-select" v-model="selectedItem" @change="handleSelect">
+    <select
+      class="sidebar-select"
+      v-model="selectedItem"
+      @change="handleSelect"
+    >
       <option value="" disabled selected>Navigate...</option>
       <option v-for="item in navItems" :key="item.label" :value="item.url">
         {{ item.label }}
@@ -28,6 +32,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { useRouter } from "vue-router";
+import { navigationItems } from "@/navigation";
 
 type NavItem = { label: string; url: string; icon: string; internal: boolean };
 
@@ -36,22 +41,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
 
-    const items: NavItem[] = [
-      { label: "Home", url: "/", icon: "track_changes", internal: true },
-      { label: "Tech", url: "/tech", icon: "track_changes", internal: true },
-      { label: "About", url: "/about", icon: "track_changes", internal: true },
-      { label: "Family", url: "/family", icon: "track_changes", internal: true },
-      { label: "Thoughts", url: "/thoughts", icon: "track_changes", internal: true },
-      { label: "Celebrity Skateboards", url: "https://celebrityskateboards.com", icon: "skateboard", internal: false },
-      { label: "Projects", url: "https://derekpedersen.github.io/#projects", icon: "hammer", internal: false },
-      { label: "Github", url: "https://github.com/derekpedersen", icon: "github-box", internal: false },
-      { label: "Jenkins", url: "https://jenkins.pedersen.io", icon: "jenkins", internal: false },
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/derek-pedersen-67105415/", icon: "linkedin-box", internal: false },
-      { label: "Resume", url: "https://derek.pedersen.io/api/resume/download", icon: "file-pdf-box", internal: false },
-      { label: "Docker", url: "https://hub.docker.com/u/derekpedersen", icon: "docker", internal: false },
-      { label: "StackOverflow", url: "https://stackoverflow.com/users/1304353/derek-pedersen", icon: "stackoverflow", internal: false },
-      { label: "Jira", url: "https://derekpedersen.atlassian.net/secure/RapidBoard.jspa?projectKey=DP&rapidView=7", icon: "jira", internal: false },
-    ];
+    const items: NavItem[] = navigationItems.map((item) => ({ ...item }));
 
     const selectedItem = ref("");
 
@@ -75,7 +65,9 @@ export default defineComponent({
 
     return {
       selectedItem,
-      navItems: computed(() => items.map((item) => ({ ...item, iconUrl: loadIcon(item.icon) }))),
+      navItems: computed(() =>
+        items.map((item) => ({ ...item, iconUrl: loadIcon(item.icon) }))
+      ),
       navigate,
       newWindow,
       handleSelect,

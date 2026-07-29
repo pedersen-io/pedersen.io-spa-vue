@@ -9,9 +9,9 @@ module.exports = {
   //     "jest-transform-stub",
   //   "^.+\\.(js|jsx)?$": "babel-jest"
   // },
-preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+  preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1'
+    "^@/(.*)$": "<rootDir>/$1",
   },
   // snapshotSerializers: ["jest-serializer-vue"],
   // testMatch: [
