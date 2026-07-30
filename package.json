@@ -8,10 +8,13 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
+    "format": "prettier --write .",
+    "verify": "npm run format && npm run lint && npm run test:unit && npm run build && npm run docker:build",
+    "release": "npm run verify && npm run set-version && npm run deploy",
     "docker:build": "docker build ./ -t pedersen-io-spa-vue:latest --no-cache",
     "docker:tag": "docker tag pedersen-io-spa-vue derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "docker:publish": "docker push derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
-    "deploy": "helm upgrade pedersen-spa .helm",
+    "deploy": "helm upgrade --install pedersen-spa .helm",
     "set-version": "sed -i -e 's/^version:.*$/version: '$(date '+%Y.%m%d.%H%M')'/' -e 's/^appVersion:.*$/appVersion: '$(git rev-parse HEAD)'/' .helm/Chart.yaml"
   },
   "dependencies": {
