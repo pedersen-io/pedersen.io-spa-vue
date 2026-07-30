@@ -1,61 +1,45 @@
 <template>
-  <md-card>
-    <md-card-media-cover md-solid>
-      <md-card-media md-ratio="1:1">
-        <img :src="require(`@/assets/${imagefile}`)" />
-      </md-card-media>
-      <md-card-area>
-        <md-card-header> </md-card-header>
-        <md-card-actions>
-          <div class="md-xsmall-hide">{{ propMessage }}</div>
-          &nbsp;|&nbsp;
-          <md-button :href="`${destination}`">{{ name }}</md-button>
-        </md-card-actions>
-      </md-card-area>
-    </md-card-media-cover>
-  </md-card>
+  <article class="card subdomain-card">
+    <img :src="imageUrl" alt="Subdomain image" />
+    <div>
+      <h2>{{ name }}</h2>
+      <p>{{ propMessage }}</p>
+      <div class="subdomain-action">
+        <a :href="destination" target="_blank" rel="noreferrer">Visit site</a>
+      </div>
+    </div>
+  </article>
 </template>
 
-<style>
-.md-card {
-  margin: 8px;
-  vertical-align: top;
-  color: #fff6dd;
-}
-</style>
+<script setup lang="ts">
+import { computed, defineProps, defineOptions } from "vue";
 
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { MdButton, MdCard } from "vue-material/dist/components";
-import { mapState, mapMutations } from "vuex";
-
-Vue.use(MdButton);
-Vue.use(MdCard);
-
-const SubdomainProps = Vue.extend({
-  props: {
-    propMessage: String,
-    destination: String,
-    imagefile: String,
-    name: String,
-  },
+defineOptions({
+  name: "AppSubdomain",
 });
 
-@Component({
-  components: {},
-  computed: mapState(["count"]),
-  methods: mapMutations(["increment"]),
-})
-export default class Subdomain extends SubdomainProps {
-  // inital data
+const props = defineProps<{
+  propMessage: string;
+  destination: string;
+  imagefile: string;
+  name: string;
+}>();
 
-  // annotate refs type
-  $refs!: {
-    subdomainComponent: Subdomain;
-  };
-
-  // lifecycle hook
-  mounted() {}
-}
+const imageUrl = computed(() => require(`@/assets/${props.imagefile}`));
 </script>
+
+<style>
+.subdomain-card {
+  display: grid;
+  gap: 14px;
+}
+
+.subdomain-card img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.subdomain-action a {
+  color: #ffc528;
+}
+</style>

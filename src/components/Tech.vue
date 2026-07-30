@@ -1,139 +1,203 @@
 <template>
-  <md-card>
-    <md-table>
-      <md-table-row>
-        <md-table-head>Tech</md-table-head>
-        <md-table-head md-numeric>Experience (Years)</md-table-head>
-        <md-table-head></md-table-head>
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Golang</md-table-cell>
-        <md-table-cell md-numeric
-          >2016 - present ({{ yearsExperience(2016) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Simply the best. What you see is what you get.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Kubernetes</md-table-cell>
-        <md-table-cell md-numeric
-          >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >As easy as Sunday mornings.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Helm</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Better than Sunday brunch.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Docker</md-table-cell>
-        <md-table-cell md-numeric
-          >2015 - present ({{ yearsExperience(2015) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >The one that changed them all.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>C#</md-table-cell>
-        <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell class="md-xsmall-hide"
-          >Spent a lot of time with .NET starting at 3.0 till
-          4.6.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Visual Basic</md-table-cell>
-        <md-table-cell md-numeric>2012 - 2018 (6)</md-table-cell>
-        <md-table-cell class="md-xsmall-hide"
-          >If you work in a .NET shop that existed before 2010, you will
-          encounter VB.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Angular</md-table-cell>
-        <md-table-cell md-numeric
-          >2014 - present ({{ yearsExperience(2014) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my
-          favorite frontend framework.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>React</md-table-cell>
-        <md-table-cell md-numeric
-          >2017 - present ({{ yearsExperience(2017) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >It has grown on me for sure.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Vue</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >If only putting together a small frontend this is now my default
-          choice.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Java</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >1 billion devices and contracting.</md-table-cell
-        >
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>Ruby on Rails</md-table-cell>
-        <md-table-cell md-numeric
-          >2019 - present ({{ yearsExperience(2019) }})</md-table-cell
-        >
-        <md-table-cell class="md-xsmall-hide"
-          >I do not like Ruby on Rails.</md-table-cell
-        >
-      </md-table-row>
-    </md-table>
-  </md-card>
+  <section class="table-card layout-item">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <button
+              type="button"
+              class="sort-button"
+              data-test="sort-tech"
+              @click="toggleSort('tech')"
+            >
+              Tech
+            </button>
+          </th>
+          <th>
+            <button
+              type="button"
+              class="sort-button"
+              data-test="sort-experience"
+              @click="toggleSort('experience')"
+            >
+              Experience
+            </button>
+          </th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="tech in sortedTech" :key="tech.name">
+          <td>{{ tech.name }}</td>
+          <td>{{ yearsExperience(tech.startYear, tech.endYear) }}</td>
+          <td>{{ tech.notes }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </template>
 
-<style></style>
-
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { MdContent, MdRipple, MdTable } from "vue-material/dist/components";
+import { defineComponent, computed, ref } from "vue";
 
-Vue.use(MdContent);
-Vue.use(MdRipple);
-Vue.use(MdTable);
+type TechEntry = {
+  name: string;
+  startYear: number;
+  endYear?: number;
+  notes: string;
+};
 
-const TechProps = Vue.extend({
-  props: {
-    propMessage: String,
-  },
-  methods: {
-    yearsExperience: function(startYear: number) {
-      return new Date().getFullYear() - startYear;
-    },
+export default defineComponent({
+  name: "AppTech",
+  setup() {
+    const techList: TechEntry[] = [
+      {
+        name: "Golang",
+        startYear: 2016,
+        notes: "Simply the best. What you see is what you get.",
+      },
+      {
+        name: "Kubernetes",
+        startYear: 2016,
+        notes: "As easy as Sunday mornings.",
+      },
+      {
+        name: "Helm",
+        startYear: 2019,
+        notes: "Better than Sunday brunch.",
+      },
+      {
+        name: "Docker",
+        startYear: 2014,
+        notes: "The one that changed them all.",
+      },
+      {
+        name: "C#",
+        startYear: 2012,
+        endYear: 2018,
+        notes: "Spent a lot of time with .NET starting at 3.0 till 4.6.",
+      },
+      {
+        name: "Visual Basic",
+        startYear: 2012,
+        endYear: 2016,
+        notes:
+          "If you work in a .NET shop that existed before 2010, you will encounter VB.",
+      },
+      {
+        name: "Angular",
+        startYear: 2013,
+        endYear: 2018,
+        notes:
+          "Dealt with the 1.0, 1.5+, and 2.0+ changes and it's still probably my favorite frontend framework.",
+      },
+      {
+        name: "React",
+        startYear: 2017,
+        endYear: 2022,
+        notes: "It has grown on me for sure.",
+      },
+      {
+        name: "Vue",
+        startYear: 2019,
+        notes:
+          "If only putting together a small frontend this is now my default choice.",
+      },
+      {
+        name: "Java",
+        startYear: 2019,
+        endYear: 2022,
+        notes: "1 billion devices and contracting.",
+      },
+      {
+        name: "Ruby on Rails",
+        startYear: 2019,
+        endYear: 2022,
+        notes: "I do not like Ruby on Rails.",
+      },
+    ];
+
+    const sortColumn = ref<"tech" | "experience">("experience");
+    const sortDirection = ref<"asc" | "desc">("desc");
+
+    const yearsExperience = (startYear: number, endYear?: number) => {
+      const currentYear = endYear ?? new Date().getFullYear();
+      const totalYears = currentYear - startYear;
+      return endYear
+        ? `${totalYears} yrs • ${startYear}-${endYear}`
+        : `${totalYears} yrs • ${startYear}-present`;
+    };
+
+    const getExperienceValue = (entry: TechEntry) => {
+      const endYear = entry.endYear ?? new Date().getFullYear();
+      return endYear - entry.startYear;
+    };
+
+    const sortedTech = computed(() => {
+      return [...techList].sort((a, b) => {
+        if (sortColumn.value === "tech") {
+          const nameCompare = a.name.localeCompare(b.name);
+          return sortDirection.value === "asc" ? nameCompare : -nameCompare;
+        }
+
+        const left = getExperienceValue(a);
+        const right = getExperienceValue(b);
+        return sortDirection.value === "asc" ? left - right : right - left;
+      });
+    });
+
+    const toggleSort = (column: "tech" | "experience") => {
+      if (sortColumn.value === column) {
+        sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc";
+      } else {
+        sortColumn.value = column;
+        sortDirection.value = "desc";
+      }
+    };
+
+    return {
+      sortedTech,
+      yearsExperience,
+      toggleSort,
+    };
   },
 });
-
-@Component({
-  name: "Tech",
-  components: {},
-})
-export default class Tech extends TechProps {}
 </script>
+
+<style>
+.table-card {
+  background: rgba(0, 40, 120, 0.95);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.table-card th,
+.table-card td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.table-card th {
+  font-weight: 700;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
+}
+</style>

@@ -1,13 +1,11 @@
 <template>
-  <div class="md-layout md-alignment-top-center">
-    <md-card
-      class="md-layout-item md-xlarge-size-100 md-large-size-100 md-medium-size-100 md-small-size-100 md-xsmall-size-100"
-    >
-      <md-card-header>
-        <div class="md-title">Derek Pedersen</div>
-        <div class="md-subhead">Quick Facts</div>
-      </md-card-header>
-      <md-card-content>
+  <div class="layout">
+    <section class="card">
+      <header class="card-header">
+        <h1>Derek Pedersen</h1>
+        <p class="subtitle">Quick Facts</p>
+      </header>
+      <div class="card-content">
         <ul>
           <li>Born at Evergreen Hospital (Kirkland, WA) in September 1985.</li>
           <li>Grew up in Mill Creek, WA.</li>
@@ -48,30 +46,30 @@
             January 2018 till June 2019.
           </li>
           <li>
-            Currently working at Navigating Cancer as a Senior Software Engineer
-            since 2019.
+            Worked at Navigating Cancer as a Senior Software Engineer from May
+            2019 till July 2022.
+          </li>
+          <li>
+            Currently a Founding Engineer at
+            <a
+              href="https://serifhealth.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Serif Health</a
+            >.
           </li>
         </ul>
-      </md-card-content>
-    </md-card>
+      </div>
+    </section>
   </div>
 </template>
 
-<style>
-.md-card {
-  text-align: left;
-}
-</style>
-
 <script lang="ts">
-import Vue from "vue";
-import { MdCard, MdLayout } from "vue-material/dist/components";
+import { defineComponent } from "vue";
 
-Vue.use(MdCard);
-Vue.use(MdLayout);
-
-export default {
-  name: "about",
-  components: {},
-};
+export default defineComponent({
+  name: "AboutView",
+});
 </script>
+
+<style></style>
