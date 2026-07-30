@@ -236,10 +236,21 @@ export default defineComponent({
     border: none;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    padding: 10px 14px;
-    min-height: auto;
+    padding: 12px 16px;
+    min-height: 48px;
     min-width: auto;
     flex: initial;
+    font-size: 1rem;
+  }
+
+  .topbar .mobile-menu .nav-button span {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  .topbar .mobile-menu .nav-icon {
+    width: 24px;
+    height: 24px;
   }
 
   .topbar .mobile-menu .nav-button:hover {
