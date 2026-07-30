@@ -53,7 +53,7 @@ export const navigationItems: NavigationItem[] = [
     internal: false,
   },
   {
-    label: "StackOverflow",
+    label: "Stack Overflow",
     url: "https://stackoverflow.com/users/1304353/derek-pedersen",
     icon: "stackoverflow",
     internal: false,

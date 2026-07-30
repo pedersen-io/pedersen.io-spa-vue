@@ -140,53 +140,110 @@ export default defineComponent({
   font-weight: 700;
 }
 
-.nav-links {
+.topbar nav.nav-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
 }
 
 .mobile-menu {
   display: none;
 }
 
-.nav-button {
-  display: inline-flex;
+.topbar .nav-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #fff;
   text-decoration: none;
-  border: none;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 10px 14px;
-  border-radius: 10px;
+  border: 0;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 8px 6px;
   cursor: pointer;
   font: inherit;
+  text-align: center;
+  min-height: 72px;
+  flex: 1 1 0;
+  min-width: 84px;
+  box-sizing: border-box;
 }
 
-.nav-button:hover {
-  background: rgba(255, 255, 255, 0.18);
+.topbar .nav-button:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+
+.topbar .nav-button:first-child {
+  border-left: 0;
+}
+
+.topbar .nav-button:last-child {
+  border-right: 0;
+}
+
+.nav-button span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .nav-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
   object-fit: contain;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
   .topbar .nav-links {
     display: none !important;
   }
 
   .topbar .mobile-menu {
     display: block !important;
+    position: relative;
     width: 100%;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     color: #fff;
+  }
+
+  .topbar .mobile-menu .mobile-menu-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 30;
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(0, 40, 120, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .topbar .mobile-menu .nav-button {
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    min-height: auto;
+    min-width: auto;
+    flex: initial;
+  }
+
+  .topbar .mobile-menu .nav-button:hover {
+    background: rgba(255, 255, 255, 0.18);
   }
 
   .topbar .mobile-menu-trigger {
@@ -223,6 +280,24 @@ export default defineComponent({
     display: grid;
     gap: 10px;
     margin-top: 10px;
+  }
+
+  .topbar .mobile-menu-list .nav-button {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: auto;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .topbar .mobile-menu-list .nav-button:hover {
+    background: rgba(255, 255, 255, 0.18);
   }
 }
 </style>
