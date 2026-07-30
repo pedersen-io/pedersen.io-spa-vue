@@ -7,13 +7,14 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "format": "prettier --write .",
-    "verify": "npm run format && npm run lint && npm run test:unit && npm run build && npm run docker:build",
-    "release": "npm run verify && npm run set-version && npm run deploy",
+    "lint": "vue-cli-service lint --fix",
+    "format": "prettier --write src",
+    "verify": "npm run format && npm run lint && npm run test:unit && npm run test:e2e",
+    "release": "npm run verify && npm run build && npm run set-version && npm run docker:deploy && npm run deploy",
     "docker:build": "docker build ./ -t pedersen-io-spa-vue:latest --no-cache",
     "docker:tag": "docker tag pedersen-io-spa-vue derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "docker:publish": "docker push derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
+    "docker:deploy": "npm run docker:build && npm run docker:tag && npm run docker:publish",
     "deploy": "helm upgrade --install pedersen-spa .helm",
     "set-version": "sed -i -e 's/^version:.*$/version: '$(date '+%Y.%m%d.%H%M')'/' -e 's/^appVersion:.*$/appVersion: '$(git rev-parse HEAD)'/' .helm/Chart.yaml"
   },
@@ -37,12 +38,14 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.4.11",
+    "@vue/vue3-jest": "^27.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^9.16.0",
     "prettier": "^2.8.8",
     "sass": "^1.70.0",
     "sass-loader": "^13.3.2",
+    "ts-jest": "^27.0.0",
     "typescript": "^4.9.5"
   }
-} 
+}
