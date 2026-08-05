@@ -14,8 +14,8 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 2024.0507.1405
+version: 2026.0804.0936
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: f1ff05350ac161169961cc02f6b68c3767f07473
+appVersion: a1abc3d627e44fc01cd8a135925ec7750f7c374c
