@@ -5,11 +5,7 @@
 replicaCount: 1
 
 image:
-<<<<<<< HEAD
-  repository: derekpedersen/pedersen-homepage
-=======
   repository: derekpedersen/pedersen-io-spa-vue
->>>>>>> main
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
