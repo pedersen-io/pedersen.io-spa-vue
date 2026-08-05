@@ -51,6 +51,10 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+    - host: www.pedersen.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
     - secretName: pedersen-io-tls
       hosts:

@@ -5,7 +5,7 @@
         imagefile="derek_and_jasper.jpg"
         name="Derek Pedersen"
         destination="https://derek.pedersen.io"
-        propMessage="Senior Software Engineer by Day, Skateboarder by Weekend"
+        propMessage="Founding Engineer by Day, Ski-bum by Weekend"
       />
     </div>
     <div class="layout-item">
