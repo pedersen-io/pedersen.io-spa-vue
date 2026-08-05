@@ -55,11 +55,23 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+    - host: jasperpedersen.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+    - host: www.jasperpedersen.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
-    - secretName: pedersen-io-tls
-      hosts:
-        - pedersen.io
-        - www.pedersen.io
+   - secretName: pedersen-io-tls
+     hosts:
+      - pedersen.io
+      - www.pedersen.io
+   - secretName: pedersen-com-tls
+     hosts:
+      - jasperpedersen.com
+      - www.jasperpedersen.com
 
 resources:
   {}
