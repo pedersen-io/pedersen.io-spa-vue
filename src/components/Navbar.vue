@@ -251,6 +251,10 @@ export default defineComponent({
   .topbar .mobile-menu .nav-icon {
     width: 24px;
     height: 24px;
+    padding: 10px 14px;
+    min-height: auto;
+    min-width: auto;
+    flex: initial;
   }
 
   .topbar .mobile-menu .nav-button:hover {
