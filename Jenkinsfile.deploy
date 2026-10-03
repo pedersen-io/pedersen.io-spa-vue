@@ -1,0 +1,89 @@
+pipeline {
+    agent {
+        label 'build-node-stable'
+    }
+    options {
+        skipDefaultCheckout true
+        timeout(time: 45, unit: 'MINUTES')
+    }
+    environment {
+        AWS_REGION = 'us-east-1'
+        ECR_REPOSITORY = '123456789012.dkr.ecr.us-east-1.amazonaws.com/pedersen-spa'
+        K8S_NAMESPACE = 'default'
+        HELM_RELEASE = 'pedersen-spa'
+    }
+    stages {
+        stage('Guard: manual main-branch run only') {
+            steps {
+                script {
+                    if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').isEmpty()) {
+                        error('Helm deploy must be started manually from the Jenkins UI.')
+                    }
+
+                    if (env.BRANCH_NAME != 'main') {
+                        error('Helm deploy jobs are restricted to the main branch only.')
+                    }
+                }
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                dir('/root/workspace/pedersen.io-spa-vue') {
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Build and publish container image') {
+            steps {
+                withCredentials([
+                    [$class: 'AmazonWebServicesCredentialsBinding',
+                     credentialsId: 'aws-credentials',
+                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
+                     sessionTokenVariable: 'AWS_SESSION_TOKEN']
+                ]) {
+                    script {
+                        env.IMAGE_TAG = "sha-${env.GIT_COMMIT.take(8)}"
+                    }
+
+                    sh '''
+                        set -eux
+                        aws ecr get-login-password --region "$AWS_REGION" \
+                            | docker login --username AWS --password-stdin "$(echo "$ECR_REPOSITORY" | cut -d/ -f1)"
+
+                        docker build -t "$ECR_REPOSITORY:$IMAGE_TAG" -t "$ECR_REPOSITORY:latest" .
+                        docker push "$ECR_REPOSITORY:$IMAGE_TAG"
+                        docker push "$ECR_REPOSITORY:latest"
+                    '''
+                }
+            }
+        }
+
+        stage('Helm deploy') {
+            steps {
+                withCredentials([
+                    [$class: 'AmazonWebServicesCredentialsBinding',
+                     credentialsId: 'aws-credentials',
+                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
+                     sessionTokenVariable: 'AWS_SESSION_TOKEN'],
+                    string(credentialsId: 'aws-eks-cluster', variable: 'AWS_EKS_CLUSTER')
+                ]) {
+                    sh '''
+                        set -eux
+                        aws eks update-kubeconfig --name "$AWS_EKS_CLUSTER" --region "$AWS_REGION"
+
+                        helm upgrade --install "$HELM_RELEASE" .helm \
+                            --namespace "$K8S_NAMESPACE" \
+                            --set image.repository="$(echo "$ECR_REPOSITORY" | cut -d: -f1)" \
+                            --set image.tag="$IMAGE_TAG" \
+                            --set image.pullPolicy=Always \
+                            --wait --timeout 10m
+                    '''
+                }
+            }
+        }
+    }
+}
