@@ -2,6 +2,9 @@ pipeline {
     agent {
         label 'build-jenkins-node'
     }
+    environment {
+        NODE_OPTIONS = '--max-old-space-size=320'
+    }
     options {
         skipDefaultCheckout true
         timeout(time: 30, unit: 'MINUTES')
@@ -17,7 +20,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm ci --legacy-peer-deps'
+                    sh 'npm ci --legacy-peer-deps --no-audit --no-fund'
                 }
             }
         }
