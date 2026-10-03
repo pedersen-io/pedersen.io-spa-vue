@@ -1,5 +1,16 @@
 # pedersen-io-spa-vue
 
+## Prerequisites
+
+- Node.js `>=18 <26` (Node 20 LTS recommended)
+- npm `>=8`
+
+If you use `nvm`, run:
+
+```
+nvm use
+```
+
 ## Project setup
 
 ```
