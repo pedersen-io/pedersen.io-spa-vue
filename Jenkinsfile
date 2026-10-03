@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'build-node-stable'
+        label 'build-jenkins-node'
     }
     options {
         skipDefaultCheckout true
