@@ -16,7 +16,7 @@
     "docker:publish": "docker push derekpedersen/pedersen-io-spa-vue:$(git rev-parse HEAD)",
     "docker:deploy": "npm run docker:build && npm run docker:tag && npm run docker:publish",
     "deploy": "helm upgrade --install pedersen-spa .helm",
-    "set-version": "./set-version.sh"
+    "set-version": "./.helm/set-version.sh"
   },
   "dependencies": {
     "core-js": "^3.32.2",
