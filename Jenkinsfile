@@ -2,6 +2,9 @@ pipeline {
     agent {
         label 'build-jenkins-node'
     }
+    environment {
+        NODE_OPTIONS = '--max_old_space_size=1536'
+    }
     options {
         skipDefaultCheckout true
         timeout(time: 30, unit: 'MINUTES')

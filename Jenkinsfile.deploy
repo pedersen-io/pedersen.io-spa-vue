@@ -5,14 +5,15 @@ pipeline {
     triggers {
         githubPush()
     }
-    options {
-        skipDefaultCheckout true
-        timeout(time: 45, unit: 'MINUTES')
-    }
     environment {
+        NODE_OPTIONS = '--max_old_space_size=1536'
         DOCKER_IMAGE = 'derekpedersen/pedersen-io-spa-vue'
         K8S_NAMESPACE = 'default'
         HELM_RELEASE = 'pedersen-spa'
+    }
+    options {
+        skipDefaultCheckout true
+        timeout(time: 45, unit: 'MINUTES')
     }
     stages {
         stage('Guard: allow manual main deploys or tag-triggered deploys') {
