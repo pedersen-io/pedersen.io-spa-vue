@@ -2,9 +2,6 @@ pipeline {
     agent {
         label 'build-jenkins-node'
     }
-    environment {
-        NODE_OPTIONS = '--max-old-space-size=320'
-    }
     options {
         skipDefaultCheckout true
         timeout(time: 30, unit: 'MINUTES')
@@ -20,21 +17,21 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm ci --legacy-peer-deps --no-audit --no-fund'
+                    sh './scripts/ci/install-deps.sh'
                 }
             }
         }
         stage('Unit tests') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm run test:unit -- --watch=false'
+                    sh './scripts/ci/test.sh'
                 }
             }
         }
         stage('Build') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm run build'
+                    sh './scripts/ci/build.sh'
                 }
             }
         }

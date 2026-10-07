@@ -2,6 +2,9 @@ pipeline {
     agent {
         label 'build-jenkins-node'
     }
+    triggers {
+        githubPush()
+    }
     options {
         skipDefaultCheckout true
         timeout(time: 45, unit: 'MINUTES')
@@ -12,16 +15,24 @@ pipeline {
         HELM_RELEASE = 'pedersen-spa'
     }
     stages {
-        stage('Guard: manual main-branch run only') {
+        stage('Guard: allow manual main deploys or tag-triggered deploys') {
             steps {
                 script {
-                    if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').isEmpty()) {
-                        error('Helm deploy must be started manually from the Jenkins UI.')
+                    def isManual = !currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').isEmpty()
+                    def isTagBuild = env.TAG_NAME?.trim()
+                    def isMainBranch = env.BRANCH_NAME == 'main'
+
+                    if (isTagBuild) {
+                        echo "Tag-triggered deploy detected for ${env.TAG_NAME}."
+                        return
                     }
 
-                    if (env.BRANCH_NAME != 'main') {
-                        error('Helm deploy jobs are restricted to the main branch only.')
+                    if (isManual && isMainBranch) {
+                        echo 'Manual deploy from main branch allowed.'
+                        return
                     }
+
+                    error('Deploys are restricted to a manual run from main or an automatic tag-triggered build.')
                 }
             }
         }
@@ -37,16 +48,13 @@ pipeline {
         stage('Build and publish container image') {
             steps {
                 script {
-                    env.IMAGE_TAG = "sha-${env.GIT_COMMIT.take(8)}"
+                    env.IMAGE_TAG = env.TAG_NAME?.trim() ?: "sha-${env.GIT_COMMIT.take(8)}"
                 }
 
                 withDockerRegistry([credentialsId: 'docker-pat', url: "https://index.docker.io/v1/"]) {
-                    sh '''
-                        set -eux
-                        docker build -t "$DOCKER_IMAGE:$IMAGE_TAG" -t "$DOCKER_IMAGE:latest" .
-                        docker push "$DOCKER_IMAGE:$IMAGE_TAG"
-                        docker push "$DOCKER_IMAGE:latest"
-                    '''
+                    dir('/root/workspace/pedersen.io-spa-vue') {
+                        sh './scripts/ci/publish-image.sh'
+                    }
                 }
             }
         }
@@ -57,22 +65,9 @@ pipeline {
                     string(credentialsId: 'digital-ocean-pat', variable: 'DIGITALOCEAN_ACCESS_TOKEN'),
                     string(credentialsId: 'digital-ocean-k8s-cluster', variable: 'DIGITALOCEAN_K8S_CLUSTER')
                 ]) {
-                    sh '''
-                        set -eux
-                        set +x
-                        doctl auth init --access-token "$DIGITALOCEAN_ACCESS_TOKEN"
-                        doctl kubernetes cluster kubeconfig save "$DIGITALOCEAN_K8S_CLUSTER"
-                        kubectl cluster-info
-
-                        npm run set-version
-
-                        helm upgrade --install "$HELM_RELEASE" .helm \
-                            --namespace "$K8S_NAMESPACE" \
-                            --set image.repository="$DOCKER_IMAGE" \
-                            --set image.tag="$IMAGE_TAG" \
-                            --set image.pullPolicy=Always \
-                            --wait --timeout 10m
-                    '''
+                    dir('/root/workspace/pedersen.io-spa-vue') {
+                        sh './scripts/ci/helm-upgrade.sh'
+                    }
                 }
             }
         }
