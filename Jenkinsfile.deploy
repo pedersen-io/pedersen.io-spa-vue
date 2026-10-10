@@ -6,7 +6,7 @@ pipeline {
         githubPush()
     }
     environment {
-        NODE_OPTIONS = '--max_old_space_size=1536'
+        NODE_OPTIONS = '--max_old_space_size=1024'
         DOCKER_IMAGE = 'derekpedersen/pedersen-io-spa-vue'
         K8S_NAMESPACE = 'default'
         HELM_RELEASE = 'pedersen-spa'

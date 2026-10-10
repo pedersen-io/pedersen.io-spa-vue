@@ -3,7 +3,7 @@ pipeline {
         label 'build-jenkins-node'
     }
     environment {
-        NODE_OPTIONS = '--max_old_space_size=1536'
+        NODE_OPTIONS = '--max_old_space_size=1024'
     }
     options {
         skipDefaultCheckout true
