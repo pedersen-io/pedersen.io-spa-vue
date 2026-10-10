@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-        stage('Unit tests') {
+        stage('CI tests (no Playwright)') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
                     sh './scripts/ci/test.sh'

@@ -41,6 +41,14 @@ npm run test:unit
 npm run test:e2e
 ```
 
+### Run Playwright tests locally
+
+```
+npm run test:playwright:local
+```
+
+CI note: Jenkins runs `npm run test:ci` (unit-only) on constrained build nodes; Playwright is local-only.
+
 ### Lints and fixes files
 
 ```
@@ -50,6 +58,12 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Asset conventions
+
+- Keep `public/` minimal. It should only contain files that must be copied as-is at build time.
+- In this project, `public/` is reserved for `index.html` and `favicon.ico`.
+- Put application images/icons under `src/assets/` and import them from Vue components so webpack can fingerprint and manage them.
 
 ---
 
