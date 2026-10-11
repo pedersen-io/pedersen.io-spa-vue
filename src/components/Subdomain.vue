@@ -25,7 +25,13 @@ const props = defineProps<{
   name: string;
 }>();
 
-const imageUrl = computed(() => require(`@/assets/${props.imagefile}`));
+const imageUrl = computed(() => {
+  if (/^https?:\/\//.test(props.imagefile) || props.imagefile.startsWith("//")) {
+    return props.imagefile;
+  }
+
+  return require(`@/assets/${props.imagefile}`);
+});
 </script>
 
 <style>
