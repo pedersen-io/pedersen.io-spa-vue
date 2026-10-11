@@ -1,0 +1,8 @@
+# Keep Docker context minimal for low-memory CI nodes.
+# Dockerfile only needs prebuilt dist output plus nginx config.
+**
+!dist/
+!dist/**
+!nginx.conf
+!Dockerfile
+!.dockerignore

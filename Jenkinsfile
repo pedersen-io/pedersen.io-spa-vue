@@ -1,60 +1,40 @@
 pipeline {
     agent {
-        label 'build-node-stable'
+        label 'build-jenkins-node'
+    }
+    environment {
+        NODE_OPTIONS = '--max_old_space_size=1024'
     }
     options {
         skipDefaultCheckout true
+        timeout(time: 30, unit: 'MINUTES')
     }
     stages {
         stage('Checkout') {
-            steps{
+            steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
                     checkout scm
                 }
             }
         }
-        stage('Dependencies') {
-            steps{
+        stage('Install dependencies') {
+            steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm install'
+                    sh './scripts/ci/install-deps.sh'
+                }
+            }
+        }
+        stage('CI tests (no Playwright)') {
+            steps {
+                dir('/root/workspace/pedersen.io-spa-vue') {
+                    sh './scripts/ci/test.sh'
                 }
             }
         }
         stage('Build') {
-            steps{
-                dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm run build'
-                }
-            }
-        }
-        stage('Docker') {
             steps {
                 dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm run docker:build'
-                }
-            }
-        }
-        stage('Publish') {
-            when {
-                expression { env.BRANCH_NAME == 'main' }
-            }
-            steps {
-                withCredentials([[$class: 'StringBinding', credentialsId: 'GCLOUD_PROJECT_ID', variable: 'GCLOUD_PROJECT_ID']]) {
-                    dir('/root/workspace/pedersen.io-spa-vue') {
-                        sh 'npm run docker:tag'
-                        sh 'npm run docker:publish'
-                    }
-                }
-            }
-        }
-        stage('Deploy') {
-            when {
-                expression { env.BRANCH_NAME == 'main' }
-            }
-            steps {
-                dir('/root/workspace/pedersen.io-spa-vue') {
-                    sh 'npm run set-version'
-                    sh 'npm run deploy'
+                    sh './scripts/ci/build.sh'
                 }
             }
         }
