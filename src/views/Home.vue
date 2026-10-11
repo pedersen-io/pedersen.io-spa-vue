@@ -2,7 +2,7 @@
   <div class="home-layout">
     <div class="layout-item">
       <AppSubdomain
-        imagefile="derek_and_jasper.jpg"
+        imagefile="https://imgur.com/UPeRp4h"
         name="Derek Pedersen"
         destination="https://derek.pedersen.io"
         propMessage="Founding Engineer by Day, Ski-bum by Weekend"

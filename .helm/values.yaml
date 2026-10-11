@@ -6,6 +6,7 @@ replicaCount: 1
 
 image:
   repository: derekpedersen/pedersen-io-spa-vue
+  tag: latest
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

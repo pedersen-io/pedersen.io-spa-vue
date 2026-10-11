@@ -1,5 +1,16 @@
 # pedersen-io-spa-vue
 
+## Prerequisites
+
+- Node.js `>=18 <26` (Node 20 LTS recommended)
+- npm `>=8`
+
+If you use `nvm`, run:
+
+```
+nvm use
+```
+
 ## Project setup
 
 ```
@@ -30,6 +41,18 @@ npm run test:unit
 npm run test:e2e
 ```
 
+### Run Playwright tests locally
+
+```
+npm run test:playwright:local
+```
+
+CI note: Jenkins runs `npm run test:ci` with `--runInBand` on constrained build nodes; Playwright is local-only.
+
+CI build note: Jenkins uses `scripts/ci/build.sh`, which caps Node's old-space size for the production build so the webpack step is less likely to exhaust memory on the small build node. You can override the cap with `BUILD_MAX_OLD_SPACE_SIZE` if the node has more headroom.
+
+CI install note: Jenkins uses `scripts/ci/install-deps.sh`, which keeps npm's networking and logging overhead low for the small build node.
+
 ### Lints and fixes files
 
 ```
@@ -39,6 +62,12 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Asset conventions
+
+- Keep `public/` minimal. It should only contain files that must be copied as-is at build time.
+- In this project, `public/` is reserved for `index.html` and `favicon.ico`.
+- Put application images/icons under `src/assets/` and import them from Vue components so webpack can fingerprint and manage them.
 
 ---
 
