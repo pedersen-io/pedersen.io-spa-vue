@@ -47,7 +47,11 @@ npm run test:e2e
 npm run test:playwright:local
 ```
 
-CI note: Jenkins runs `npm run test:ci` (unit-only) on constrained build nodes; Playwright is local-only.
+CI note: Jenkins runs `npm run test:ci` with `--runInBand` on constrained build nodes; Playwright is local-only.
+
+CI build note: Jenkins uses `scripts/ci/build.sh`, which caps Node's old-space size for the production build so the webpack step is less likely to exhaust memory on the small build node. You can override the cap with `BUILD_MAX_OLD_SPACE_SIZE` if the node has more headroom.
+
+CI install note: Jenkins uses `scripts/ci/install-deps.sh`, which keeps npm's networking and logging overhead low for the small build node.
 
 ### Lints and fixes files
 
