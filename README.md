@@ -1,5 +1,10 @@
 # pedersen-io-spa-vue
 
+## Agent guidance
+
+- Repository agent contract: `AGENTS.md`
+- Copilot pointer file: `.github/copilot-instructions.md`
+
 ## Prerequisites
 
 - Node.js `>=18 <26` (Node 20 LTS recommended)
@@ -49,9 +54,19 @@ npm run test:playwright:local
 
 CI note: Jenkins runs `npm run test:ci` with `--runInBand` on constrained build nodes; Playwright is local-only.
 
-CI build note: Jenkins uses `scripts/ci/build.sh`, which caps Node's old-space size for the production build so the webpack step is less likely to exhaust memory on the small build node. You can override the cap with `BUILD_MAX_OLD_SPACE_SIZE` if the node has more headroom.
+CI build note: Jenkins uses `.scripts/ci/build.sh`, which caps Node's old-space size for the production build so the webpack step is less likely to exhaust memory on the small build node. You can override the cap with `BUILD_MAX_OLD_SPACE_SIZE` if the node has more headroom.
 
-CI install note: Jenkins uses `scripts/ci/install-deps.sh`, which keeps npm's networking and logging overhead low for the small build node.
+CI install note: Jenkins uses `.scripts/ci/install-deps.sh`, which keeps npm's networking and logging overhead low for the small build node and skips browser binary downloads that are not needed for this unit-test/build pipeline.
+
+### Constrained-node CI profile (1 vCPU / 2 GB)
+
+- `BUILD_MAX_OLD_SPACE_SIZE=1024`
+- `TEST_MAX_OLD_SPACE_SIZE=768`
+- `NPM_CONFIG_MAXSOCKETS=1`
+- `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`
+- `CYPRESS_INSTALL_BINARY=0`
+
+These defaults are set in `Jenkinsfile` for the build job and can be overridden per environment if needed.
 
 ### Lints and fixes files
 
