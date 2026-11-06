@@ -4,21 +4,21 @@
       name="Marissa Pedersen"
       propMessage="www.postcardstoseattle.com"
       destination="https://postcardstoseattle.com"
-      imagefile="marissa_and_jp.jpg"
+      imagefile="https://imgur.com/IlLzbUZ"
       class="layout-item"
     />
     <AppSubdomain
       name="Jasper Pedersen"
       propMessage="I'm a baby"
       destination="https://jasper.pedersen.io"
-      imagefile="jasper_nightlight.jpg"
+      imagefile="https://imgur.com/utfsHnG"
       class="layout-item"
     />
     <AppSubdomain
       name="Kieran Pedersen"
       propMessage="www.postcardstoseattle.com"
       destination="https://postcardstoseattle.com"
-      imagefile="marissa_and_jp.jpg"
+      imagefile="https://imgur.com/NwsND12"
       class="layout-item"
     />
   </div>

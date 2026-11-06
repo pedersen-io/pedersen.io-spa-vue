@@ -7,7 +7,7 @@ describe("Subdomain.vue", () => {
       props: {
         propMessage: "new message",
         destination: "https://example.com",
-        imagefile: "derek_and_jasper.jpg",
+        imagefile: "https://imgur.com/UPeRp4h",
         name: "Example",
       },
     });
@@ -15,5 +15,6 @@ describe("Subdomain.vue", () => {
     expect(wrapper.text()).toContain("new message");
     expect(wrapper.text()).toContain("Example");
     expect(wrapper.find("a").attributes("href")).toBe("https://example.com");
+    expect(wrapper.find("img").attributes("src")).toBe("https://imgur.com/UPeRp4h");
   });
 });
